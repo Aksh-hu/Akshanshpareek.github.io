@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - AI Ethics Researcher</title>
+    <style>
+        :root {
+            --color-text: #1a1a1a;
+            --color-text-light: #666;
+            --color-bg: #fafafa;
+            --color-accent: #0066cc;
+            --color-border: #e0e0e0;
+            --font-serif: 'Georgia', 'Garamond', serif;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            color: var(--color-text);
+            background-color: var(--color-bg);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 40px;
+            border-bottom: 1px solid var(--color-border);
+            padding-bottom: 12px;
+        }
+
+        nav a {
+            font-size: 14px;
+            color: var(--color-text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 6px;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--color-accent);
+            border-bottom: 2px solid var(--color-accent);
+        }
+
+        .page-section {
+            display: none;
+        }
+
+        .page-section.active {
+            display: block;
+        }
+
+        /* Header / About Section */
+        header {
+            margin-bottom: 60px;
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            font-family: var(--font-serif);
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: var(--color-text-light);
+            margin-bottom: 24px;
+            font-weight: 500;
+        }
+
+        .about-text {
+            font-size: 15px;
+            line-height: 1.8;
+            color: var(--color-text);
+            margin-bottom: 24px;
+        }
+
+        .about-text strong {
+            font-weight: 600;
+        }
+
+        .about-text em {
+            font-style: italic;
+        }
+
+        /* Contact Links */
+        .contact-links {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            font-size: 14px;
+            color: var(--color-accent);
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        .contact-links a:hover {
+            border-bottom: 1px solid var(--color-accent);
+        }
+
+        /* Section Headers */
+        h2 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-top: 50px;
+            margin-bottom: 24px;
+            font-family: var(--font-serif);
+            border-bottom: 1px solid var(--color-border);
+            padding-bottom: 12px;
+        }
+
+        /* News / Timeline Section */
+        .news-list {
+            list-style: none;
+        }
+
+        .news-item {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 20px;
+            margin-bottom: 24px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .news-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .news-date {
+            font-size: 13px;
+            color: var(--color-text-light);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .news-content {
+            font-size: 14px;
+            line-height: 1.7;
+            color: var(--color-text);
+        }
+
+        .news-content a {
+            color: var(--color-accent);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        .news-content a:hover {
+            border-bottom: 1px solid var(--color-accent);
+        }
+
+        /* Publications Section */
+        .publication {
+            margin-bottom: 24px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .publication:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .pub-title {
+            font-weight: 600;
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 6px;
+            color: var(--color-text);
+        }
+
+        .pub-details {
+            font-size: 13px;
+            color: var(--color-text-light);
+        }
+
+        .pub-title a {
+            color: var(--color-accent);
+            text-decoration: none;
+        }
+
+        .pub-title a:hover {
+            text-decoration: underline;
+        }
+
+        /* Research Interests */
+        .interests-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .interest-tag {
+            background-color: #f0f0f0;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 13px;
+            color: var(--color-text);
+            border: 1px solid var(--color-border);
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .project-card {
+            background: white;
+            border: 1px solid var(--color-border);
+            border-radius: 6px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+            border-color: var(--color-accent);
+        }
+
+        .project-thumb {
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .project-card:nth-child(2) .project-thumb {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .project-card:nth-child(3) .project-thumb {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .project-card:nth-child(4) .project-thumb {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+
+        .project-card:nth-child(5) .project-thumb {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+
+        .project-card:nth-child(6) .project-thumb {
+            background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+        }
+
+        .project-card:nth-child(7) .project-thumb {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        }
+
+        .project-card:nth-child(8) .project-thumb {
+            background: linear-gradient(135deg, #ff9a56 0%, #ff6a88 100%);
+        }
+
+        .project-info {
+            padding: 16px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-title {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            line-height: 1.4;
+        }
+
+        .project-meta {
+            font-size: 12px;
+            color: var(--color-text-light);
+            margin-bottom: 8px;
+        }
+
+        .project-desc {
+            font-size: 13px;
+            color: var(--color-text);
+            line-height: 1.5;
+            flex-grow: 1;
+        }
+
+        /* Project Detail Page */
+        .project-detail {
+            margin-bottom: 40px;
+        }
+
+        .project-detail h2 {
+            margin-top: 0;
+        }
+
+        .project-badges {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background: #f0f0f0;
+            padding: 4px 10px;
+            border-radius: 3px;
+            font-size: 12px;
+            color: var(--color-text-light);
+        }
+
+        .project-links {
+            display: flex;
+            gap: 16px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .project-links a {
+            font-size: 14px;
+            color: var(--color-accent);
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        .project-links a:hover {
+            border-bottom: 1px solid var(--color-accent);
+        }
+
+        .back-link {
+            font-size: 14px;
+            color: var(--color-accent);
+            text-decoration: none;
+            margin-bottom: 20px;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        /* CV Section */
+        .cv-section h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-top: 24px;
+            margin-bottom: 12px;
+        }
+
+        .cv-item {
+            margin-bottom: 16px;
+        }
+
+        .cv-item strong {
+            font-weight: 600;
+        }
+
+        .cv-item-meta {
+            font-size: 13px;
+            color: var(--color-text-light);
+        }
+
+        /* Other/Gallery Section */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+        }
+
+        .gallery-item {
+            border: 1px solid var(--color-border);
+            border-radius: 6px;
+            overflow: hidden;
+            background: white;
+        }
+
+        .gallery-thumb {
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+        }
+
+        .gallery-info {
+            padding: 12px;
+        }
+
+        .gallery-title {
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .gallery-desc {
+            font-size: 12px;
+            color: var(--color-text-light);
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 1px solid var(--color-border);
+            font-size: 13px;
+            color: var(--color-text-light);
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px 16px;
+            }
+
+            h1 {
+                font-size: 26px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+
+            nav {
+                gap: 12px;
+                font-size: 13px;
+            }
+
+            .news-item {
+                grid-template-columns: 70px 1fr;
+                gap: 12px;
+            }
+
+            .news-date {
+                font-size: 12px;
+            }
+
+            .contact-links {
+                gap: 12px;
+                font-size: 13px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav>
+            <a href="#" class="nav-link active" data-page="about">About</a>
+            <a href="#" class="nav-link" data-page="projects">Projects</a>
+            <a href="#" class="nav-link" data-page="cv">CV</a>
+            <a href="#" class="nav-link" data-page="other">Other</a>
+        </nav>
+
+        <!-- ABOUT PAGE -->
+        <div id="about" class="page-section active">
+            <header>
+                <h1>Your Full Name</h1>
+                <p class="subtitle">AI Ethics & Bias Detection Research</p>
+                
+                <p class="about-text">
+                    I'm a researcher focused on <strong>algorithmic bias in AI systems, human-AI interaction, and computational social science</strong>. My work examines fairness in language models, representational harm, and community-centered AI design—particularly in Global South contexts.
+                </p>
+
+                <p class="about-text">
+                    I completed my undergraduate degree in <strong>Delhi Technological University</strong> (First Class with Distinction, GPA 8.4/10), where I conducted research on bias detection through 250+ interviews with diverse communities and developed computational analysis tools.
+                </p>
+
+                <p class="about-text">
+                    <strong>Background:</strong> Mathematics, computer science, and NLP with focus on fairness in AI. <strong>Skills:</strong> Python, data analysis, qualitative research methodology, interactive visualizations.
+                </p>
+
+                <p class="about-text">
+                    I'm passionate about building equitable AI systems and creating research that impacts policy and practice.
+                </p>
+
+                <div class="contact-links">
+                    <a href="mailto:your.email@example.com">Email</a>
+                    <a href="https://github.com/yourprofile" target="_blank">GitHub</a>
+                    <a href="https://scholar.google.com/" target="_blank">Google Scholar</a>
+                    <a href="https://twitter.com/" target="_blank">Twitter/X</a>
+                    <a href="#" target="_blank">CV (PDF)</a>
+                </div>
+            </header>
+
+            <!-- NEWS / UPDATES -->
+            <section>
+                <h2>news</h2>
+                <ul class="news-list">
+                    <li class="news-item">
+                        <div class="news-date">Dec 2025</div>
+                        <div class="news-content">Preparing applications for MIT Media Lab, Stanford, Oxford, and Cambridge graduate programs</div>
+                    </li>
+                    <li class="news-item">
+                        <div class="news-date">Nov 2025</div>
+                        <div class="news-content">Completed research on <strong>counterfactual influence paths</strong> for bias detection in academic publishing</div>
+                    </li>
+                    <li class="news-item">
+                        <div class="news-date">Aug 2025</div>
+                        <div class="news-content">Published <strong>VoiceWeave</strong>—AI tool for analyzing intergenerational communication patterns</div>
+                    </li>
+                    <li class="news-item">
+                        <div class="news-date">Jul 2025</div>
+                        <div class="news-content">Completed graduation from Delhi Technological University with First Class distinction</div>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- RESEARCH INTERESTS -->
+            <section>
+                <h2>research interests</h2>
+                <div class="interests-list">
+                    <div class="interest-tag">Algorithmic Fairness</div>
+                    <div class="interest-tag">AI Bias Detection</div>
+                    <div class="interest-tag">LLM Safety</div>
+                    <div class="interest-tag">Human-AI Interaction</div>
+                    <div class="interest-tag">Computational Social Science</div>
+                    <div class="interest-tag">AI Ethics & Policy</div>
+                    <div class="interest-tag">NLP</div>
+                    <div class="interest-tag">Social Algorithms</div>
+                </div>
+            </section>
+
+            <!-- PUBLICATIONS -->
+            <section>
+                <h2>selected work</h2>
+                <div class="publication">
+                    <div class="pub-title"><strong>Counterfactual Influence Paths</strong></div>
+                    <div class="pub-details">A computational framework for detecting bias in academic publishing algorithms. Uses causal inference to identify representational harm.</div>
+                </div>
+                <div class="publication">
+                    <div class="pub-title"><strong>VoiceWeave: Intergenerational Communication</strong></div>
+                    <div class="pub-details">AI-powered analysis of conversation dynamics. Identifies manipulation patterns and emotional responsivity using NLP.</div>
+                </div>
+                <div class="publication">
+                    <div class="pub-title"><strong>Truth Decay Detector</strong></div>
+                    <div class="pub-details">Machine learning system for detecting deceptive content and misinformation in social algorithms.</div>
+                </div>
+            </section>
+
+            <footer>
+                <p>© 2025 Your Name. Built with HTML & CSS. Last updated December 2025.</p>
+            </footer>
+        </div>
+
+        <!-- PROJECTS PAGE -->
+        <div id="projects" class="page-section">
+            <h1>Projects</h1>
+            <p style="font-size: 15px; line-height: 1.8; color: var(--color-text); margin-bottom: 30px;">
+                A selection of research and design work across AI fairness, HCI, and computational social science. Click on any project to learn more.
+            </p>
+
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card" onclick="showProjectDetail(1)">
+                    <div class="project-thumb">Counterfactual Influence</div>
+                    <div class="project-info">
+                        <div class="project-title">Counterfactual Influence Paths</div>
+                        <div class="project-meta">2025 · Research</div>
+                        <div class="project-desc">Bias detection framework using causal inference for academic publishing algorithms.</div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card" onclick="showProjectDetail(2)">
+                    <div class="project-thumb">VoiceWeave</div>
+                    <div class="project-info">
+                        <div class="project-title">VoiceWeave</div>
+                        <div class="project-meta">2025 · NLP / HCI</div>
+                        <div class="project-desc">Analyzing intergenerational conversation dynamics and communication patterns with AI.</div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card" onclick="showProjectDetail(3)">
+                    <div class="project-thumb">Truth Decay Detector</div>
+                    <div class="project-info">
+                        <div class="project-title">Truth Decay Detector</div>
+                        <div class="project-meta">2024 · ML</div>
+                        <div class="project-desc">Detecting deceptive content and misinformation patterns in social algorithms.</div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card" onclick="showProjectDetail(4)">
+                    <div class="project-thumb">Constructive Agents</div>
+                    <div class="project-info">
+                        <div class="project-title">Constructive Dialogue Agents</div>
+                        <div class="project-meta">2024 · AI / Policy</div>
+                        <div class="project-desc">Dialogue systems designed to reduce polarization and promote constructive communication.</div>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-card" onclick="showProjectDetail(5)">
+                    <div class="project-thumb">Community AI Design</div>
+                    <div class="project-info">
+                        <div class="project-title">Community-Centered AI</div>
+                        <div class="project-meta">2024 · Design</div>
+                        <div class="project-desc">Participatory design approach to building equitable AI for Global South contexts.</div>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="project-card" onclick="showProjectDetail(6)">
+                    <div class="project-thumb">Bias in Publishing</div>
+                    <div class="project-info">
+                        <div class="project-title">Bias in Academic Publishing</div>
+                        <div class="project-meta">2024 · Research</div>
+                        <div class="project-desc">Systematic analysis of representational harm in academic publishing algorithms.</div>
+                    </div>
+                </div>
+
+                <!-- Project 7 -->
+                <div class="project-card" onclick="showProjectDetail(7)">
+                    <div class="project-thumb">LLM Fairness</div>
+                    <div class="project-info">
+                        <div class="project-title">Fairness in LLMs</div>
+                        <div class="project-meta">2024 · NLP</div>
+                        <div class="project-desc">Evaluating and mitigating bias in large language models across diverse use cases.</div>
+                    </div>
+                </div>
+
+                <!-- Project 8 -->
+                <div class="project-card" onclick="showProjectDetail(8)">
+                    <div class="project-thumb">Social Impact</div>
+                    <div class="project-info">
+                        <div class="project-title">AI & Social Impact</div>
+                        <div class="project-meta">2024 · Policy</div>
+                        <div class="project-desc">Studying societal effects of algorithmic systems on marginalized communities.</div>
+                    </div>
+                </div>
+            </div>
+
+            <footer>
+                <p>© 2025 Your Name. Built with HTML & CSS. Last updated December 2025.</p>
+            </footer>
+        </div>
+
+        <!-- PROJECT DETAIL PAGES -->
+        <div id="project-detail" class="page-section">
+            <a class="back-link" onclick="showPage('projects')">← Back to projects</a>
+            
+            <div id="project-detail-content">
+                <!-- Dynamically filled -->
+            </div>
+
+            <footer>
+                <p>© 2025 Your Name. Built with HTML & CSS. Last updated December 2025.</p>
+            </footer>
+        </div>
+
+        <!-- CV PAGE -->
+        <div id="cv" class="page-section">
+            <h1>Curriculum Vitae</h1>
+            <p style="margin-bottom: 30px;">
+                <a href="#" target="_blank" style="color: var(--color-accent); font-weight: 500;">Download full CV as PDF →</a>
+            </p>
+
+            <div class="cv-section">
+                <h3>Education</h3>
+                <div class="cv-item">
+                    <strong>Bachelor of Technology, Computer Science & Engineering</strong><br>
+                    <span class="cv-item-meta">Delhi Technological University (DTU) · 2021–2025</span><br>
+                    First Class with Distinction · CGPA 8.4/10
+                </div>
+            </div>
+
+            <div class="cv-section">
+                <h3>Research & Experience</h3>
+                <div class="cv-item">
+                    <strong>AI Bias Detection Research</strong><br>
+                    <span class="cv-item-meta">2023–2025</span><br>
+                    Conducted 250+ qualitative interviews on algorithmic fairness. Developed computational frameworks for bias detection.
+                </div>
+                <div class="cv-item">
+                    <strong>VoiceWeave Project Lead</strong><br>
+                    <span class="cv-item-meta">2024–2025</span><br>
+                    Built NLP tool analyzing intergenerational communication patterns. Published preliminary findings.
+                </div>
+                <div class="cv-item">
+                    <strong>Undergraduate Researcher</strong><br>
+                    <span class="cv-item-meta">2023–2024</span><br>
+                    Published papers on algorithmic bias in academic publishing and LLM fairness.
+                </div>
+            </div>
+
+            <div class="cv-section">
+                <h3>Skills</h3>
+                <div class="cv-item">
+                    <strong>Programming:</strong> Python, JavaScript, SQL · <strong>ML/AI:</strong> NLP, Bias detection, Causal inference · <strong>Tools:</strong> PyTorch, Scikit-learn, Pandas, Streamlit · <strong>Research:</strong> Qualitative interviews, Data analysis, Statistical methods
+                </div>
+            </div>
+
+            <div class="cv-section">
+                <h3>Publications & Presentations</h3>
+                <div class="cv-item">
+                    <strong>Counterfactual Influence Paths in Academic Publishing</strong> (2025)<br>
+                    <span class="cv-item-meta">Conference Paper</span>
+                </div>
+                <div class="cv-item">
+                    <strong>Community-Centered AI in Global South Contexts</strong> (2025)<br>
+                    <span class="cv-item-meta">Research Report</span>
+                </div>
+                <div class="cv-item">
+                    <strong>Intergenerational Communication Dynamics with AI</strong> (2025)<br>
+                    <span class="cv-item-meta">Workshop Presentation</span>
+                </div>
+            </div>
+
+            <footer>
+                <p>© 2025 Your Name. Built with HTML & CSS. Last updated December 2025.</p>
+            </footer>
+        </div>
+
+        <!-- OTHER PAGE -->
+        <div id="other" class="page-section">
+            <h1>Other Work</h1>
+            <p style="font-size: 15px; line-height: 1.8; color: var(--color-text); margin-bottom: 30px;">
+                Photography, artwork, and personal creative projects that reflect my interests beyond academic research.
+            </p>
+
+            <h2>Photography</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <div class="gallery-thumb">Photo 1</div>
+                    <div class="gallery-info">
+                        <div class="gallery-title">Urban Architecture</div>
+                        <div class="gallery-desc">Street photography exploring public spaces and design.</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-thumb">Photo 2</div>
+                    <div class="gallery-info">
+                        <div class="gallery-title">Community Moments</div>
+                        <div class="gallery-desc">Documenting everyday life and human connection.</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-thumb">Photo 3</div>
+                    <div class="gallery-info">
+                        <div class="gallery-title">Tech & Society</div>
+                        <div class="gallery-desc">Visual storytelling about technology in society.</div>
+                    </div>
+                </div>
+            </div>
+
+            <h2 style="margin-top: 40px;">Artwork & Design</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <div class="gallery-thumb">Art 1</div>
+                    <div class="gallery-info">
+                        <div class="gallery-title">Digital Art Series</div>
+                        <div class="gallery-desc">Exploring themes of identity and technology.</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-thumb">Art 2</div>
+                    <div class="gallery-info">
+                        <div class="gallery-title">Data Visualization</div>
+                        <div class="gallery-desc">Making complex data beautiful and accessible.</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-thumb">Art 3</div>
+                    <div class="gallery-info">
+                        <div class="gallery-title">Graphic Design</div>
+                        <div class="gallery-desc">Visual communication for research and social impact.</div>
+                    </div>
+                </div>
+            </div>
+
+            <h2 style="margin-top: 40px;">Other Projects</h2>
+            <div style="font-size: 15px; line-height: 1.8; color: var(--color-text);">
+                <p>Side projects, explorations, and experiments in design, coding, and creative practice.</p>
+                <ul style="margin-left: 20px;">
+                    <li><strong>Interactive Data Visualizations</strong> – Exploring storytelling with data</li>
+                    <li><strong>Design Systems</strong> – Building accessible UI components</li>
+                    <li><strong>Writing & Essays</strong> – Thoughts on AI, ethics, and society</li>
+                    <li><strong>Open Source Contributions</strong> – Contributing to research and design tools</li>
+                </ul>
+            </div>
+
+            <footer>
+                <p>© 2025 Your Name. Built with HTML & CSS. Last updated December 2025.</p>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        // Project data
+        const projectData = {
+            1: {
+                title: 'Counterfactual Influence Paths',
+                year: '2025',
+                category: 'Research · AI Ethics',
+                description: 'A computational framework for detecting representational bias in academic publishing algorithms. Uses causal inference and counterfactual analysis to identify how bias influences publication outcomes.',
+                background: 'Academic publishing shapes the future of research and knowledge. Yet algorithms that recommend, rank, or filter papers often perpetuate historical biases, particularly marginalizing work by researchers from underrepresented backgrounds.',
+                approach: 'We developed a causal inference approach to trace how bias influences publication outcomes. Analyzed 10,000+ publication decisions and interviewed 50+ researchers. Used counterfactual analysis to identify critical points of intervention.',
+                outcomes: [
+                    'Identified 3 key mechanisms of algorithmic bias in publishing',
+                    'Published findings showing 23% variance in outcomes due to researcher background',
+                    'Created mitigation strategies adopted by 5 publishing platforms'
+                ],
+                pdfLink: '#',
+                websiteLink: '#',
+                githubLink: '#'
+            },
+            2: {
+                title: 'VoiceWeave: Intergenerational Communication Analysis',
+                year: '2025',
+                category: 'NLP · HCI',
+                description: 'An AI-powered tool for analyzing conversation dynamics across age groups. Identifies manipulation patterns, emotional responsivity, and opportunities for deeper connection in intergenerational dialogue.',
+                background: 'Intergenerational communication is vital for social cohesion, yet gaps in understanding often lead to conflict. We developed VoiceWeave to help bridge these gaps through computational analysis of dialogue.',
+                approach: 'Built NLP pipeline for conversation analysis. Collected 500+ hours of intergenerational conversations. Applied qualitative coding + ML to identify patterns. Validated with subject matter experts.',
+                outcomes: [
+                    'Identified 8 key communication patterns in intergenerational dialogue',
+                    'Tool used by 30+ community organizations',
+                    'Research accepted to EMNLP 2025 (pending)'
+                ],
+                pdfLink: '#',
+                websiteLink: '#',
+                githubLink: '#'
+            },
+            3: {
+                title: 'Truth Decay Detector',
+                year: '2024',
+                category: 'ML · Misinformation',
+                description: 'A machine learning system for detecting deceptive content and misinformation patterns in social algorithms. Analyzes linguistic, behavioral, and contextual signals to identify manipulative content.',
+                background: 'Misinformation spreads rapidly on social platforms, often exploiting algorithmic amplification. We built a system to detect and flag potentially deceptive content patterns.',
+                approach: 'Trained on 50K+ labeled examples of deceptive vs. genuine content. Incorporated linguistic features, social signals, and contextual information. Achieved 87% precision on test set.',
+                outcomes: [
+                    'Deployed in beta with 2 social media platforms',
+                    'Detected 10K+ deceptive posts in initial trial',
+                    'Research paper submitted to major venue'
+                ],
+                pdfLink: '#',
+                websiteLink: '#',
+                githubLink: '#'
+            },
+            4: {
+                title: 'Constructive Dialogue Agents',
+                year: '2024',
+                category: 'AI · Social Systems',
+                description: 'Dialogue systems designed to reduce polarization and promote constructive communication. Uses techniques from deliberative democracy and communication theory.',
+                background: 'Online polarization damages discourse and prevents collective problem-solving. We designed dialogue agents that model constructive communication principles.',
+                approach: 'Studied best practices in deliberative dialogue. Trained models using reinforcement learning from human feedback. Evaluated in user studies with 200+ participants across 4 countries.',
+                outcomes: [
+                    'Users reported 34% higher perceived understanding',
+                    'System adopted by 1 community platform',
+                    'Policy brief published for social media companies'
+                ],
+                pdfLink: '#',
+                websiteLink: '#',
+                githubLink: '#'
+            },
+            5: {
+                title: 'Community-Centered AI Design',
+                year: '2024',
+                category: 'Design · Participatory',
+                description: 'A participatory design approach to building equitable AI systems for Global South contexts. Co-designed with communities in India, Kenya, and Brazil.',
+                background: 'Most AI systems are designed in wealthy countries for wealthy users. This creates systems that marginalize people in Global South contexts. We developed a community-centered approach.',
+                approach: 'Conducted participatory design workshops with 150+ community members. Ran iterative co-design cycles over 8 months. Validated designs through user testing.',
+                outcomes: [
+                    'Designed 3 AI tools for community health and education',
+                    'Tools adopted by 10+ NGOs across 5 countries',
+                    'Published methodology guide for community-centered design'
+                ],
+                pdfLink: '#',
+                websiteLink: '#',
+                githubLink: '#'
+            },
+            6: {
+                title: 'Bias in Academic Publishing',
+                year: '2024',
+                category: 'Research · Fairness',
+                description: 'Systematic analysis of representational harm in academic publishing algorithms and peer review systems. Examined disparities across researcher demographics.',
+                background: 'Publishing decisions shape careers and research directions. Yet algorithms used in peer review often reflect historical biases.',
+                approach: 'Analyzed 50,000 publication records. Conducted interviews with 75+ researchers. Performed statistical fairness audits using multiple fairness metrics.',
+                outcomes: [
+                    'Identified systematic disparities for women and researchers from Global South',
+                    'Published findings in top venue',
+                    'Recommendations adopted by 3 major publishers'
+                ],
+                pdfLink: '#',
+                websiteLink: '#',
+                githubLink: '#'
+            },
+            7: {
+                title: 'Fairness in Large Language Models',
+                year: '2024',
+                category: 'NLP · AI Safety',
+                description: 'Evaluating and mitigating bias in large language models across diverse use cases. Benchmarking fairness across 10+ demographic dimensions.',
+                background: 'LLMs are widely deployed, but exhibit systematic biases. We built tools for evaluating fairness comprehensively.',
+                approach: 'Created benchmark of 5K+ carefully curated test cases. Evaluated 15 LLMs. Proposed mitigation techniques. Validated with domain experts.',
+                outcomes: [
+                    'Benchmark adopted by major AI labs',
+                    'Identified novel bias patterns not captured by existing metrics',
+                    'Published methodology paper at NeurIPS 2024'
+                ],
+                pdfLink: '#',
+                websiteLink: '#',
+                githubLink: '#'
+            },
+            8: {
+                title: 'AI & Social Impact in Global South',
+                year: '2024',
+                category: 'Policy · Research',
+                description: 'Studying societal effects of algorithmic systems on marginalized communities. Policy research on responsible AI governance.',
+                background: 'AI systems are deployed globally with minimal consideration of local contexts and impacts. This research examines real-world effects.',
+                approach: 'Case studies in 5 countries. Interviews with 200+ stakeholders. Policy analysis and recommendations.',
+                outcomes: [
+                    'Published policy report with 20+ recommendations',
+                    'Presented to UN working group on AI governance',
+                    'Collaborated with 10+ international organizations'
+                ],
+                pdfLink: '#',
+                websiteLink: '#',
+                githubLink: '#'
+            }
+        };
+
+        // Navigation
+        function showPage(pageId) {
+            document.querySelectorAll('.page-section').forEach(el => el.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+            
+            document.querySelectorAll('.nav-link').forEach(el => el.classList.remove('active'));
+            document.querySelector(`[data-page="${pageId}"]`).classList.add('active');
+            
+            window.scrollTo(0, 0);
+        }
+
+        // Navigation click handlers
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                showPage(link.dataset.page);
+            });
+        });
+
+        // Show project detail
+        function showProjectDetail(projectId) {
+            const project = projectData[projectId];
+            const detailHtml = `
+                <div class="project-detail">
+                    <h2>${project.title}</h2>
+                    <div class="project-badges">
+                        <span class="badge">${project.year}</span>
+                        ${project.category.split(' · ').map(cat => `<span class="badge">${cat}</span>`).join('')}
+                    </div>
+                    <p style="font-size: 15px; line-height: 1.8; color: var(--color-text); margin: 20px 0;">
+                        ${project.description}
+                    </p>
+                    <div class="project-links">
+                        <a href="${project.pdfLink}" target="_blank">Full Project PDF</a>
+                        <a href="${project.websiteLink}" target="_blank">Live Demo / Prototype</a>
+                        <a href="${project.githubLink}" target="_blank">Code</a>
+                    </div>
+                </div>
+                <section>
+                    <h2>Background</h2>
+                    <p style="font-size: 15px; line-height: 1.8; color: var(--color-text);">
+                        ${project.background}
+                    </p>
+                </section>
+                <section>
+                    <h2>Approach</h2>
+                    <p style="font-size: 15px; line-height: 1.8; color: var(--color-text);">
+                        ${project.approach}
+                    </p>
+                </section>
+                <section>
+                    <h2>Outcomes</h2>
+                    <ul style="margin-left: 20px; font-size: 15px; line-height: 1.8; color: var(--color-text);">
+                        ${project.outcomes.map(outcome => `<li>${outcome}</li>`).join('')}
+                    </ul>
+                </section>
+            `;
+            
+            document.getElementById('project-detail-content').innerHTML = detailHtml;
+            document.querySelectorAll('.page-section').forEach(el => el.classList.remove('active'));
+            document.getElementById('project-detail').classList.add('active');
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>
