@@ -3,481 +3,93 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Akshansh Pareek - Portfolio</title>
-
+  <title>Portfolio Test</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
-      background: #f5f5f5;
-      color: #1a1a1a;
-      line-height: 1.6;
+    body { font-family: Arial, sans-serif; background:#f5f5f5; margin:0; }
+    .wrap { max-width: 1000px; margin: 0 auto; padding: 24px; }
+    nav { background:#fff; padding:12px 16px; border-radius:10px; display:flex; gap:16px; }
+    nav a { color:#0066cc; text-decoration:none; font-weight:600; }
+    .page { display:none; margin-top:20px; }
+    .page.active { display:block; }
+    .card {
+      background:#fff; padding:16px; border-radius:12px; cursor:pointer;
+      box-shadow:0 2px 8px rgba(0,0,0,0.08);
+      margin-top:16px;
     }
-
-    .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
-
-    nav {
-      background: white;
-      padding: 20px 40px;
-      margin-bottom: 40px;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-      display: flex;
-      gap: 30px;
-      flex-wrap: wrap;
+    .detail {
+      background:#fff; padding:20px; border-radius:12px;
+      box-shadow:0 2px 8px rgba(0,0,0,0.08);
+      margin-top:16px;
     }
-
-    nav a {
-      font-size: 15px;
-      color: #666;
-      text-decoration: none;
-      font-weight: 500;
-      transition: all 0.2s;
-      padding: 8px 0;
-      border-bottom: 2px solid transparent;
+    img.case {
+      width:100%;
+      border-radius:12px;
+      box-shadow:0 2px 8px rgba(0,0,0,0.08);
+      display:block;
     }
-
-    nav a:hover, nav a.active {
-      color: #0066cc;
-      border-bottom: 2px solid #0066cc;
-    }
-
-    .page-section { display: none; }
-    .page-section.active { display: block; }
-
-    header {
-      background: white;
-      padding: 60px;
-      border-radius: 12px;
-      margin-bottom: 40px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    }
-
-    h1 {
-      font-size: 42px;
-      margin-bottom: 12px;
-      font-weight: 700;
-      color: #1a1a1a;
-    }
-
-    .subtitle {
-      font-size: 16px;
-      color: #0066cc;
-      margin-bottom: 30px;
-      font-weight: 500;
-    }
-
-    .about-text {
-      font-size: 15px;
-      line-height: 1.8;
-      margin-bottom: 20px;
-      color: #333;
-    }
-
-    .contact-links {
-      display: flex;
-      gap: 12px;
-      margin-top: 30px;
-      flex-wrap: wrap;
-    }
-
-    .contact-links a {
-      font-size: 14px;
-      color: #0066cc;
-      text-decoration: none;
-      font-weight: 500;
-      transition: all 0.2s;
-      padding: 8px 16px;
-      border: 1px solid #e0e0e0;
-      border-radius: 6px;
-    }
-
-    .contact-links a:hover {
-      background: #f0f4ff;
-      border-color: #0066cc;
-    }
-
-    h2 { font-size: 28px; margin: 50px 0 30px; font-weight: 700; color: #1a1a1a; }
-
-    .news-list {
-      list-style: none;
-      background: white;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    }
-
-    .news-item {
-      display: grid;
-      grid-template-columns: 120px 1fr;
-      gap: 25px;
-      padding: 20px 0;
-      border-bottom: 1px solid #f0f0f0;
-    }
-
-    .news-item:last-child { border-bottom: none; }
-
-    .news-date { font-size: 13px; color: #666; font-weight: 600; }
-    .news-content { font-size: 15px; color: #333; }
-
-    .interests-list { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 30px; }
-
-    .interest-tag {
-      background: #f0f4ff;
-      padding: 8px 16px;
-      border-radius: 20px;
-      font-size: 13px;
-      color: #0066cc;
-      border: 1px solid #d4e4ff;
-    }
-
-    .publication {
-      background: white;
-      padding: 25px;
-      border-radius: 12px;
-      margin-bottom: 20px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    }
-
-    .pub-title { font-weight: 600; font-size: 16px; margin-bottom: 8px; color: #1a1a1a; }
-    .pub-details { font-size: 14px; color: #666; }
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-      margin-bottom: 40px;
-    }
-
-    .project-card {
-      background: white;
-      border-radius: 12px;
-      overflow: hidden;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    }
-
-    .project-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-    }
-
-    .project-thumb {
-      width: 100%;
-      height: 180px;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 14px;
-      font-weight: 600;
-      text-align: center;
-      padding: 20px;
-    }
-
-    .project-card:nth-child(2) .project-thumb { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
-    .project-card:nth-child(3) .project-thumb { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
-    .project-card:nth-child(4) .project-thumb { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
-    .project-card:nth-child(5) .project-thumb { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
-    .project-card:nth-child(6) .project-thumb { background: linear-gradient(135deg, #30cfd0 0%, #330867 100%); }
-
-    .project-info { padding: 25px; }
-
-    .project-title { font-size: 16px; font-weight: 600; margin-bottom: 8px; color: #1a1a1a; }
-    .project-meta { font-size: 12px; color: #999; margin-bottom: 12px; }
-    .project-desc { font-size: 14px; color: #666; line-height: 1.6; }
-
-    .project-detail {
-      background: white;
-      padding: 50px;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-      margin-bottom: 40px;
-    }
-
-    .back-link {
-      display: inline-block;
-      color: #0066cc;
-      text-decoration: none;
-      margin-bottom: 30px;
-      font-weight: 500;
-      cursor: pointer;
-    }
-
-    .back-link:hover { text-decoration: underline; }
-
-    .project-badges { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
-
-    .badge {
-      background: #f0f4ff;
-      padding: 6px 12px;
-      border-radius: 20px;
-      font-size: 12px;
-      color: #0066cc;
-    }
-
-    .project-links { display: flex; gap: 12px; margin: 25px 0; flex-wrap: wrap; }
-
-    .project-links a {
-      font-size: 14px;
-      color: white;
-      background: #0066cc;
-      padding: 10px 16px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.2s;
-    }
-
-    .project-links a:hover { background: #0052a3; }
-
-    /* Media display */
-    .detail-media {
-      width: 100%;
-      border-radius: 12px;
-      display: block;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-      margin-top: 16px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 40px;
-      color: #999;
-      font-size: 13px;
-      margin-top: 60px;
-    }
-
-    @media (max-width: 768px) {
-      header { padding: 40px 30px; }
-      h1 { font-size: 32px; }
-      nav { padding: 15px 20px; gap: 15px; }
-      .project-detail { padding: 30px 20px; }
-      .projects-grid { grid-template-columns: 1fr; }
-      .news-item { grid-template-columns: 1fr; gap: 10px; }
+    .btn {
+      display:inline-block; margin-top:12px;
+      background:#0066cc; color:#fff; padding:10px 14px;
+      border-radius:8px; text-decoration:none; font-weight:600;
     }
   </style>
 </head>
-
 <body>
-  <div class="container">
-
+  <div class="wrap">
     <nav>
-      <a href="#" class="nav-link active" data-page="about">About</a>
-      <a href="#" class="nav-link" data-page="projects">Projects</a>
-      <a href="#" class="nav-link" data-page="other">Other</a>
+      <a href="#" onclick="showPage('about'); return false;">About</a>
+      <a href="#" onclick="showPage('projects'); return false;">Projects</a>
     </nav>
 
-    <!-- ABOUT -->
-    <div id="about" class="page-section active">
-      <header>
-        <h1>Your Full Name</h1>
-        <p class="subtitle">AI Research · HCI · Design</p>
+    <div id="about" class="page active">
+      <div class="detail">
+        <h2>About</h2>
+        <p>This is a test site. Next we will add your real portfolio.</p>
+      </div>
+    </div>
 
-        <p class="about-text">
-          Short intro about you. Mention what you work on and what you’re applying for.
+    <div id="projects" class="page">
+      <div class="detail">
+        <h2>Projects</h2>
+        <div class="card" onclick="openProject1()">
+          <b>Project 1 (PNG test)</b><br/>
+          Click to open the test image.
+        </div>
+      </div>
+
+      <div id="project1" class="detail" style="display:none;">
+        <a href="#" onclick="closeProject1(); return false;">← Back</a>
+        <h3 style="margin-top:12px;">Project 1 (PNG test)</h3>
+
+        <!-- Image -->
+        <img class="case" src="project-test.png" alt="Project test image" />
+
+        <!-- Fallback open in new tab -->
+        <a class="btn" href="project-test.png" target="_blank" rel="noopener">Open image in new tab</a>
+
+        <p style="color:#666; margin-top:12px;">
+          If you still see a blank/broken icon, the PNG file is too large or corrupted.
+          Convert it to JPG or split into multiple images.
         </p>
-
-        <div class="contact-links">
-          <a href="mailto:your.email@example.com">Email</a>
-          <a href="https://github.com/Aksh-hu" target="_blank" rel="noopener">GitHub</a>
-          <a href="#" target="_blank" rel="noopener">CV</a>
-        </div>
-      </header>
-
-      <h2>Latest News</h2>
-      <ul class="news-list">
-        <li class="news-item">
-          <div class="news-date">Jan 2026</div>
-          <div class="news-content">Updating portfolio for graduate applications.</div>
-        </li>
-      </ul>
-
-      <h2>Research Interests</h2>
-      <div class="interests-list">
-        <div class="interest-tag">Algorithmic Fairness</div>
-        <div class="interest-tag">AI Audits</div>
-        <div class="interest-tag">Human-AI Interaction</div>
-        <div class="interest-tag">NLP</div>
-      </div>
-
-      <h2>Featured Work</h2>
-      <div class="publication">
-        <div class="pub-title">Project / Paper Title</div>
-        <div class="pub-details">1–2 lines summary.</div>
       </div>
     </div>
-
-    <!-- PROJECTS -->
-    <div id="projects" class="page-section">
-      <h2>Projects</h2>
-      <p style="font-size: 15px; color: #666; margin-bottom: 30px; line-height: 1.8;">
-        Click a project to open the detailed view.
-      </p>
-
-      <div class="projects-grid">
-        <div class="project-card" onclick="showProjectDetail(1)">
-          <div class="project-thumb">Project 1 (Test)</div>
-          <div class="project-info">
-            <div class="project-title">Project 1 (Test)</div>
-            <div class="project-meta">2025 · Case Study</div>
-            <div class="project-desc">This project will show your test PNG inside the detail page.</div>
-          </div>
-        </div>
-
-        <div class="project-card" onclick="showProjectDetail(2)">
-          <div class="project-thumb">Project 2</div>
-          <div class="project-info">
-            <div class="project-title">Project 2</div>
-            <div class="project-meta">2025 · Research</div>
-            <div class="project-desc">Placeholder description.</div>
-          </div>
-        </div>
-
-        <div class="project-card" onclick="showProjectDetail(3)">
-          <div class="project-thumb">Project 3</div>
-          <div class="project-info">
-            <div class="project-title">Project 3</div>
-            <div class="project-meta">2024 · Research</div>
-            <div class="project-desc">Placeholder description.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- DETAIL -->
-    <div id="project-detail" class="page-section">
-      <a class="back-link" onclick="showPage('projects')">← Back to Projects</a>
-      <div id="project-detail-content"></div>
-    </div>
-
-    <!-- OTHER -->
-    <div id="other" class="page-section">
-      <h2>Other</h2>
-      <p style="font-size: 15px; color: #666; margin-bottom: 30px; line-height: 1.8;">
-        This section can later hold Photography collage, 3D art collage, and YouTube videos.
-      </p>
-
-      <div class="projects-grid">
-        <div class="project-card" onclick="alert('Later we will add photography collage here!')">
-          <div class="project-thumb">Photography</div>
-          <div class="project-info">
-            <div class="project-title">Photography</div>
-            <div class="project-meta">Collage</div>
-            <div class="project-desc">Placeholder.</div>
-          </div>
-        </div>
-
-        <div class="project-card" onclick="alert('Later we will add 3D artworks collage here!')">
-          <div class="project-thumb">3D Artworks</div>
-          <div class="project-info">
-            <div class="project-title">3D Artworks</div>
-            <div class="project-meta">Collage</div>
-            <div class="project-desc">Placeholder.</div>
-          </div>
-        </div>
-
-        <div class="project-card" onclick="alert('Later we will add YouTube videos here!')">
-          <div class="project-thumb">Cinematography</div>
-          <div class="project-info">
-            <div class="project-title">Cinematography</div>
-            <div class="project-meta">YouTube</div>
-            <div class="project-desc">Placeholder.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <footer>
-      <p>© 2026 Your Name. Hosted on GitHub Pages.</p>
-    </footer>
   </div>
 
   <script>
-    const projectData = {
-      1: {
-        title: 'Project 1 (Test)',
-        year: '2025',
-        category: 'Case Study · Test',
-        description: `
-          <p style="font-size: 16px; line-height: 1.8; color: #333; margin: 0 0 16px;">
-            Test: showing my case study as a single image directly on the website.
-          </p>
-          <img src="project-test.png" alt="Project test" class="detail-media">
-        `,
-        pdfLink: '#',
-        websiteLink: '#',
-        githubLink: '#'
-      },
-      2: {
-        title: 'Project 2',
-        year: '2025',
-        category: 'Research · Placeholder',
-        description: 'Replace this with your real project description.',
-        pdfLink: '#',
-        websiteLink: '#',
-        githubLink: '#'
-      },
-      3: {
-        title: 'Project 3',
-        year: '2024',
-        category: 'Research · Placeholder',
-        description: 'Replace this with your real project description.',
-        pdfLink: '#',
-        websiteLink: '#',
-        githubLink: '#'
-      }
-    };
-
-    function showPage(pageId) {
-      document.querySelectorAll('.page-section').forEach(el => el.classList.remove('active'));
-      document.getElementById(pageId).classList.add('active');
-
-      document.querySelectorAll('.nav-link').forEach(el => el.classList.remove('active'));
-      const nav = document.querySelector(`[data-page="${pageId}"]`);
-      if (nav) nav.classList.add('active');
-
-      window.scrollTo(0, 0);
+    function showPage(id){
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      window.scrollTo(0,0);
     }
 
-    document.querySelectorAll('.nav-link').forEach(link => {
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
-        showPage(link.dataset.page);
-      });
-    });
+    function openProject1(){
+      document.getElementById('project1').style.display = 'block';
+      window.scrollTo(0,0);
+    }
 
-    function showProjectDetail(projectId) {
-      const p = projectData[projectId];
-
-      const html = `
-        <div class="project-detail">
-          <h2>${p.title}</h2>
-          <div class="project-badges">
-            <span class="badge">${p.year}</span>
-            ${p.category.split(' · ').map(c => `<span class="badge">${c}</span>`).join('')}
-          </div>
-
-          <div style="font-size: 16px; line-height: 1.8; margin: 25px 0; color: #333;">
-            ${p.description}
-          </div>
-
-          <div class="project-links">
-            <a href="${p.pdfLink}" target="_blank" rel="noopener">PDF</a>
-            <a href="${p.websiteLink}" target="_blank" rel="noopener">Demo</a>
-            <a href="${p.githubLink}" target="_blank" rel="noopener">Code</a>
-          </div>
-        </div>
-      `;
-
-      document.getElementById('project-detail-content').innerHTML = html;
-
-      document.querySelectorAll('.page-section').forEach(el => el.classList.remove('active'));
-      document.getElementById('project-detail').classList.add('active');
-      window.scrollTo(0, 0);
+    function closeProject1(){
+      document.getElementById('project1').style.display = 'none';
+      window.scrollTo(0,0);
     }
   </script>
 </body>
