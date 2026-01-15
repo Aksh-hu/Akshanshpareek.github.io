@@ -372,6 +372,22 @@
       margin-bottom: 24px;
     }
 
+    .cv-viewer {
+      width: 100%;
+      height: 980px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      background: white;
+      box-shadow: var(--shadow);
+    }
+
+    .cv-viewer iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
     /* OTHER PAGE */
     .other-grid {
       display: grid;
@@ -461,6 +477,7 @@
       h1 { font-size: 32px; }
       .grid, .other-grid { grid-template-columns: 1fr; }
       .update-item { grid-template-columns: 1fr; gap: 8px; }
+      .cv-viewer { height: 720px; }
     }
   </style>
 </head>
@@ -500,7 +517,7 @@
 
         <div class="meta-links">
           <a class="pill" href="mailto:akshanshpareek25@gmail.com">Email</a>
-          <a class="pill" href="https://github.com/Aksh-hu/Akshanshpareek.github.io/blob/main/Akshansh__CV_.pdf" target="_blank" rel="noopener">CV (PDF)</a>
+          <a class="pill" href="./Akshansh__CV_.pdf" target="_blank" rel="noopener">CV (PDF)</a>
           <a class="pill" href="https://www.linkedin.com/in/akshansh-pareek-95060a223/" target="_blank" rel="noopener">LinkedIn</a>
           <a class="pill" href="https://github.com/Aksh-hu" target="_blank" rel="noopener">GitHub</a>
           <a class="pill" href="https://orcid.org/0009-0001-4195-4877" target="_blank" rel="noopener">ORCID</a>
@@ -587,13 +604,20 @@
     <!-- CV -->
     <section id="cv" class="page-section">
       <h2>Curriculum Vitae</h2>
-      <div class="card">
+
+      <div class="card cv-section">
         <p class="para" style="margin-bottom: 12px;">
-          Download the CV as a PDF (recommended).
+          View my CV below or download it.
         </p>
-        <div class="links">
-          <a class="btn primary" href="https://github.com/Aksh-hu/Akshanshpareek.github.io/blob/main/Akshansh__CV_.pdf" target="_blank" rel="noopener">Download CV (PDF)</a>
+
+        <div class="links" style="margin-top: 0;">
+          <a class="btn primary" href="./Akshansh__CV_.pdf" target="_blank" rel="noopener">Open CV (PDF)</a>
+          <a class="btn ghost" href="./Akshansh__CV_.pdf" download>Download CV</a>
         </div>
+      </div>
+
+      <div class="cv-viewer">
+        <iframe src="./Akshansh__CV_.pdf"></iframe>
       </div>
     </section>
 
@@ -678,6 +702,9 @@
       }
     }
 
+    // IMPORTANT:
+    // PDFs must be in the SAME folder as index.html for these ./ links to work. [web:18][web:381]
+
     // -------- PROJECTS DATA --------
     const projects = [
       {
@@ -686,7 +713,7 @@
         year: "2025",
         category: "Participatory web platform · Microfinance",
         short: "Participatory platform that helps SHG borrowers document loan outcomes and generate evidence for appeals.",
-        pdf: "https://github.com/Aksh-hu/Akshanshpareek.github.io/blob/main/Finequity_compressed(pdfgear.com).pdf",
+        pdf: "./Finequity_compressed(pdfgear.com).pdf",
         demo: null,
         prototype: "https://aksh-hu.github.io/finequity-audit/",
         overview: "FinEquity is a participatory web platform that helps SHG borrowers document what happened with their microfinance loan applications, compare outcomes across people like them, and turn those records into group-level evidence for appeals and regulatory complaints—especially when decisions are opaque or reasons are not provided.",
@@ -712,7 +739,7 @@
         year: "2025",
         category: "NLP · Dialogue analytics",
         short: "Detects likely contribution suppression using structural dialogue features (not semantic meaning).",
-        pdf: "https://github.com/Aksh-hu/Akshanshpareek.github.io/blob/main/Voiceweave.pdf",
+        pdf: "./Voiceweave.pdf",
         demo: "https://voiceweave-le5t57ivldbvmfcsm5bsez.streamlit.app/",
         prototype: null,
         overview: "VoiceWeave is a machine-learning project that detects when a participant's contribution is likely to be suppressed in a group conversation, using only structural signals from dialogue transcripts (not semantic meaning). It's designed to help facilitators and researchers make invisible participation inequities visible in real time and support evidence-based interventions to create more equitable discussions.",
@@ -738,7 +765,7 @@
         year: "2024",
         category: "Service design · ONDC",
         short: "Open-network, community-run delivery concept supporting gig workers and local kirana stores without commissions.",
-        pdf: "https://github.com/Aksh-hu/Akshanshpareek.github.io/blob/main/gig%20worker%20-%20kirana%20stores.pdf",
+        pdf: "./gig%20worker%20-%20kirana%20stores.pdf",
         demo: null,
         prototype: null,
         overview: "Samvedha is a user-centered platform concept exploring how an open-network, community-run delivery system can support India's gig workers and local kirana stores without commissions or intermediaries. Designed within the ONDC ecosystem, the project addresses structural issues in last-mile delivery by proposing a decentralized, cooperative alternative.",
@@ -767,7 +794,7 @@
         year: "2023",
         category: "Systems design · MSME digitization",
         short: "Culture-first e-commerce ecosystem enabling discovery, education, and sustainable scale for underrepresented communities.",
-        pdf: "https://github.com/Aksh-hu/Akshanshpareek.github.io/blob/main/democratizing%20e%20commerce.pdf",
+        pdf: "./democratizing%20e%20commerce.pdf",
         demo: null,
         prototype: null,
         overview: "Sahaj is a systems-driven e-commerce concept designed to address digital inequality faced by India's micro and small businesses. It reimagines e-commerce as a culture-first, multi-domain ecosystem that enables discovery, education, and sustainable scale for underrepresented communities.",
@@ -795,7 +822,7 @@
         year: "2024",
         category: "UX case study · Misinformation",
         short: "Redesign of Instagram sharing flow with pre-sharing credibility checks and AI-aware UX interventions.",
-        pdf: "https://github.com/Aksh-hu/Akshanshpareek.github.io/blob/main/social%20%20media.pdf",
+        pdf: "./social%20%20media.pdf",
         demo: null,
         prototype: null,
         overview: "Beyond Filtered Reality is a UX case study exploring how Instagram can better address AI-propagated misinformation before it spreads. It integrates real-time, community-driven credibility signals and AI-aware interventions into the sharing flow.",
@@ -823,7 +850,7 @@
         year: "2025",
         category: "Dialogue analysis · Nyāya",
         short: "Dialogue-analysis project that applies Nyāya epistemology to help groups move from polarization to synthesis.",
-        pdf: "https://github.com/Aksh-hu/Akshanshpareek.github.io/blob/main/Samvad.pdf",
+        pdf: "./Samvad.pdf",
         demo: "https://samvad-app.onrender.com/",
         prototype: null,
         overview: "SAMVAD brings ancient Nyāya epistemology into modern AI and policy conversations by treating stories, logic, analogies, and expert references as distinct but equally valid ways of knowing. It analyzes discussions using five modules to help groups move from polarization toward co-created, Nyāya-grounded solutions.",
@@ -852,7 +879,7 @@
         year: "2025",
         category: "Fairness · NLP",
         short: "Bilingual Indian dataset + evaluation pipeline to audit regional and occupational bias in LLMs.",
-        pdf: "https://github.com/Aksh-hu/Akshanshpareek.github.io/blob/main/Bhed%20Bhav.pdf",
+        pdf: "./Bhed%20Bhav.pdf",
         demo: null,
         prototype: null,
         overview: "BHED BHAV examines how LLMs trained on Western-centric data misrepresent India's regional and occupational diversity. It develops the first bilingual Indian dataset targeting regional and occupational bias and provides a scalable framework to audit representational harms.",
@@ -881,7 +908,7 @@
         year: "2024",
         category: "Qualitative research · GenAI",
         short: "Interviews with undergraduate students on creativity, authorship, and learning in AI-augmented education.",
-        pdf: "https://github.com/Aksh-hu/Akshanshpareek.github.io/blob/main/Creativity%20error%20404.pdf",
+        pdf: "./Creativity%20error%20404.pdf",
         demo: null,
         prototype: null,
         overview: "Creativity – ERROR 404 is a qualitative research project examining how generative AI tools reshape creativity, authorship, and learning among undergraduate students in Indian universities. It studies how students balance efficiency with creative identity, and how ownership and originality shift in AI-assisted work.",
@@ -911,7 +938,7 @@
         year: "2025",
         category: "Empirical review · FAccT",
         short: "Analyzes the gap between positionality disclosure and reflexive engagement in FAccT papers (2018–2024).",
-        pdf: "https://github.com/Aksh-hu/Akshanshpareek.github.io/blob/main/positionality.pdf",
+        pdf: "./positionality.pdf",
         demo: null,
         prototype: null,
         overview: "Disclosure Without Engagement is an empirical research project analyzing how positionality statements are used in FAccT papers from 2018 to 2024. It examines whether researchers move beyond identity disclosure to meaningfully reflect on how their backgrounds influence research decisions.",
@@ -941,7 +968,7 @@
         year: "2022",
         category: "UX audit · Community platforms",
         short: "Comprehensive UX evaluation of Reddit's interaction design, information architecture, and moderation mechanics.",
-        pdf: "https://github.com/Aksh-hu/Akshanshpareek.github.io/blob/main/Reddit%20UX%20Audit.pdf",
+        pdf: "./Reddit%20UX%20Audit.pdf",
         demo: null,
         prototype: null,
         overview: "The Reddit Usability Audit is a comprehensive UX evaluation of one of the world's largest community-driven platforms. It examines how Reddit's interaction design, information architecture, and moderation mechanics support—or hinder—user participation across diverse communities.",
@@ -971,7 +998,7 @@
         year: "2024",
         category: "UX audit · Booking flows",
         short: "Heuristic usability evaluation of District's event discovery and ticket booking platform.",
-        pdf: "https://github.com/Aksh-hu/Akshanshpareek.github.io/blob/main/Heuristic%20evaluation(district).pdf",
+        pdf: "./Heuristic%20evaluation(district).pdf",
         demo: null,
         prototype: null,
         overview: "This project is a heuristic usability evaluation of District, Zomato's event discovery and ticket booking platform. Launched in November 2024, District quickly scaled to millions of users, making usability and interaction consistency critical.",
@@ -1014,8 +1041,13 @@
     // Show project detail
     function showProjectDetail(id) {
       const project = projects.find(p => p.id === id);
-      if (!project) return;        let linksHTML = `<div class="links">`;
-      if (project.pdf) linksHTML += `<a class="btn primary" href="${project.pdf.replace('blob/main', 'raw/main')}" target="_blank" rel="noopener">Full Case Study (PDF)</a>`;
+      if (!project) return;
+
+      let linksHTML = `<div class="links">`;
+      if (project.pdf) {
+        linksHTML += `<a class="btn primary" href="${project.pdf}" target="_blank" rel="noopener">Open PDF</a>`;
+        linksHTML += `<a class="btn ghost" href="${project.pdf}" download>Download PDF</a>`;
+      }
       if (project.demo) linksHTML += `<a class="btn dark" href="${project.demo}" target="_blank" rel="noopener">Live Demo</a>`;
       if (project.prototype) linksHTML += `<a class="btn dark" href="${project.prototype}" target="_blank" rel="noopener">Prototype</a>`;
       linksHTML += `</div>`;
