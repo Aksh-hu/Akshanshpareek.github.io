@@ -43,7 +43,6 @@
       border-radius: var(--radius);
       padding: 18px 24px;
       margin-bottom: 28px;
-
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -236,7 +235,6 @@
       overflow: hidden;
       cursor: pointer;
       transition: all 0.3s ease;
-
       min-height: 340px;
       display: flex;
       flex-direction: column;
@@ -369,6 +367,11 @@
     ul.clean { margin-left: 20px; font-size: 14px; }
     ul.clean li { margin-bottom: 10px; color: #0f172a; }
 
+    /* CV PAGE */
+    .cv-section {
+      margin-bottom: 24px;
+    }
+
     /* OTHER PAGE */
     .other-grid {
       display: grid;
@@ -385,7 +388,6 @@
       transition: all 0.3s ease;
       border: 1px solid var(--border);
       box-shadow: var(--shadow);
-
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -486,9 +488,9 @@
         <div class="subtitle">Researcher & Designer</div>
 
         <p class="para">
-          Hi, I’m Akshansh Pareek — a researcher and designer working at the intersection of
+          Hi, I'm Akshansh Pareek — a researcher and designer working at the intersection of
           <strong>computational social science</strong>, <strong>NLP</strong>, <strong>participatory research</strong>, and <strong>algorithmic fairness</strong>.
-          I currently collaborate with the University of Cambridge on research into institutional and geographic bias in academic publishing, and I’ve also worked with the MIT Media Lab on an empirical study examining positionality statements in fairness and transparency research.
+          I currently collaborate with the University of Cambridge on research into institutional and geographic bias in academic publishing, and I've also worked with the MIT Media Lab on an empirical study examining positionality statements in fairness and transparency research.
           I earned my Bachelor of Design from Delhi Technological University (DTU), where my thesis explored regional and occupational bias in large language models.
         </p>
 
@@ -572,7 +574,7 @@
     <!-- PROJECTS -->
     <section id="projects" class="page-section">
       <h2>All projects</h2>
-      <div class="projects-intro">Click any project to open the full case study, demo, or prototype (when available).</div>
+      <div class="projects-intro">Click any project to open the full case study or demo (when available).</div>
       <div class="grid" id="projects-grid"></div>
     </section>
 
@@ -590,19 +592,8 @@
           Download the CV as a PDF (recommended).
         </p>
         <div class="links">
-          <!-- Uses blob link for guaranteed non-404 -->
           <a class="btn primary" href="https://github.com/Aksh-hu/Akshanshpareek.github.io/blob/main/Akshansh__CV_.pdf" target="_blank" rel="noopener">Download CV (PDF)</a>
         </div>
-        <p class="para" style="margin-top: 12px; color: var(--muted);">
-          If you want the CV to open on the GitHub Pages domain (not GitHub), rename the file to something simple like <strong>cv.pdf</strong> and place it in the repo root.
-        </p>
-      </div>
-
-      <div class="card" style="margin-top: 18px;">
-        <div class="section-title">CV (text version)</div>
-        <p class="para" style="color: var(--muted); margin-bottom: 0;">
-          The detailed CV is available in the PDF above.
-        </p>
       </div>
     </section>
 
@@ -626,7 +617,6 @@
       <div id="photo-section" style="display:none; margin-top: 18px;">
         <a class="back" onclick="openPhoto(false)">← Back</a>
         <div class="photo-wrap">
-          <!-- raw.githubusercontent link renders image directly -->
           <img src="https://raw.githubusercontent.com/Aksh-hu/Akshanshpareek.github.io/main/Desktop%20-%201.png" alt="Photography collage" />
         </div>
       </div>
@@ -663,7 +653,6 @@
       const map = { about: 0, projects: 1, cv: 2, other: 3 };
       document.querySelectorAll(".nav-link")[map[pageId]].classList.add("active");
 
-      // reset other toggles if leaving Other page
       if (pageId !== "other") {
         document.getElementById("photo-section").style.display = "none";
         document.getElementById("showreels-section").style.display = "none";
@@ -689,7 +678,7 @@
       }
     }
 
-    // -------- PROJECTS DATA (from your message) --------
+    // -------- PROJECTS DATA --------
     const projects = [
       {
         id: "finequity",
@@ -700,8 +689,7 @@
         pdf: "https://github.com/Aksh-hu/Akshanshpareek.github.io/blob/main/Finequity_compressed(pdfgear.com).pdf",
         demo: null,
         prototype: "https://aksh-hu.github.io/finequity-audit/",
-        overview:
-          "FinEquity is a participatory web platform that helps SHG borrowers document what happened with their microfinance loan applications, compare outcomes across people like them, and turn those records into group-level evidence for appeals and regulatory complaints—especially when decisions are opaque or reasons are not provided.",
+        overview: "FinEquity is a participatory web platform that helps SHG borrowers document what happened with their microfinance loan applications, compare outcomes across people like them, and turn those records into group-level evidence for appeals and regulatory complaints—especially when decisions are opaque or reasons are not provided.",
         who: [
           "SHG women borrowers, especially SC/ST handloom workers facing repeated rejections or worse terms.",
           "SHG facilitators who support many borrowers and need a simple way to see patterns across the group.",
@@ -727,8 +715,7 @@
         pdf: "https://github.com/Aksh-hu/Akshanshpareek.github.io/blob/main/Voiceweave.pdf",
         demo: "https://voiceweave-le5t57ivldbvmfcsm5bsez.streamlit.app/",
         prototype: null,
-        overview:
-          "VoiceWeave is a machine-learning project that detects when a participant’s contribution is likely to be suppressed in a group conversation, using only structural signals from dialogue transcripts (not semantic meaning). It’s designed to help facilitators and researchers make invisible participation inequities visible in real time and support evidence-based interventions to create more equitable discussions.",
+        overview: "VoiceWeave is a machine-learning project that detects when a participant's contribution is likely to be suppressed in a group conversation, using only structural signals from dialogue transcripts (not semantic meaning). It's designed to help facilitators and researchers make invisible participation inequities visible in real time and support evidence-based interventions to create more equitable discussions.",
         who: [
           "Facilitators of deliberations, classrooms, meetings, or moderated forums who need real-time support.",
           "Researchers studying participation inequality and conversational power dynamics.",
@@ -741,21 +728,20 @@
         ],
         findings: [
           "Suppression risk is predictable with 85% accuracy, with 87.2% precision and 82.7% recall in binary classification.",
-          "Turn-level content structure dominates: utterance length + word count account for 68.2% of predictive power (vs 31.8% from speaker-level signals).",
+          "Turn-level content structure dominates: utterance length + word count account for 68.2% of predictive power.",
           "Suppressed turns are much shorter on average (about 42.7 characters / 7.3 words) than amplified turns (about 89.4 characters / 14.8 words)."
         ]
       },
       {
         id: "samvedha",
-        title: "Samvedha: India’s First Open Grocery App",
+        title: "Samvedha: India's First Open Grocery App",
         year: "2024",
         category: "Service design · ONDC",
         short: "Open-network, community-run delivery concept supporting gig workers and local kirana stores without commissions.",
         pdf: "https://github.com/Aksh-hu/Akshanshpareek.github.io/blob/main/gig%20worker%20-%20kirana%20stores.pdf",
         demo: null,
         prototype: null,
-        overview:
-          "Samvedha is a user-centered platform concept exploring how an open-network, community-run delivery system can support India’s gig workers and local kirana stores without commissions or intermediaries. Designed within the ONDC ecosystem, the project addresses structural issues in last-mile delivery by proposing a decentralized, cooperative alternative.",
+        overview: "Samvedha is a user-centered platform concept exploring how an open-network, community-run delivery system can support India's gig workers and local kirana stores without commissions or intermediaries. Designed within the ONDC ecosystem, the project addresses structural issues in last-mile delivery by proposing a decentralized, cooperative alternative.",
         who: [
           "Gig delivery workers seeking fair pay and dignity of labor.",
           "Local kirana store owners in the unorganized retail sector.",
@@ -784,8 +770,7 @@
         pdf: "https://github.com/Aksh-hu/Akshanshpareek.github.io/blob/main/democratizing%20e%20commerce.pdf",
         demo: null,
         prototype: null,
-        overview:
-          "Sahaj is a systems-driven e-commerce concept designed to address digital inequality faced by India’s micro and small businesses. It reimagines e-commerce as a culture-first, multi-domain ecosystem that enables discovery, education, and sustainable scale for underrepresented communities.",
+        overview: "Sahaj is a systems-driven e-commerce concept designed to address digital inequality faced by India's micro and small businesses. It reimagines e-commerce as a culture-first, multi-domain ecosystem that enables discovery, education, and sustainable scale for underrepresented communities.",
         who: [
           "Micro and small business owners from underrepresented regions.",
           "Artisans, food producers, and community-led enterprises.",
@@ -813,8 +798,7 @@
         pdf: "https://github.com/Aksh-hu/Akshanshpareek.github.io/blob/main/social%20%20media.pdf",
         demo: null,
         prototype: null,
-        overview:
-          "Beyond Filtered Reality is a UX case study exploring how Instagram can better address AI-propagated misinformation before it spreads. It integrates real-time, community-driven credibility signals and AI-aware interventions into the sharing flow.",
+        overview: "Beyond Filtered Reality is a UX case study exploring how Instagram can better address AI-propagated misinformation before it spreads. It integrates real-time, community-driven credibility signals and AI-aware interventions into the sharing flow.",
         who: [
           "Active Instagram users who frequently share informational content.",
           "Users who want to share responsibly but lack easy ways to verify content.",
@@ -842,8 +826,7 @@
         pdf: "https://github.com/Aksh-hu/Akshanshpareek.github.io/blob/main/Samvad.pdf",
         demo: "https://samvad-app.onrender.com/",
         prototype: null,
-        overview:
-          "SAMVAD brings ancient Nyāya epistemology into modern AI and policy conversations by treating stories, logic, analogies, and expert references as distinct but equally valid ways of knowing. It analyzes discussions using five modules to help groups move from polarization toward co-created, Nyāya-grounded solutions.",
+        overview: "SAMVAD brings ancient Nyāya epistemology into modern AI and policy conversations by treating stories, logic, analogies, and expert references as distinct but equally valid ways of knowing. It analyzes discussions using five modules to help groups move from polarization toward co-created, Nyāya-grounded solutions.",
         who: [
           "Policymakers and commissions working on contested issues (e.g., healthcare, climate).",
           "Civic tech / AI researchers exploring non-Western foundations for dialogue systems.",
@@ -851,14 +834,14 @@
           "Platforms or labs interested in measuring and improving dialogue quality at scale."
         ],
         built: [
-          "A 5-module conceptual “SAMVAD engine” (pramāṇa classifier, value extractor, Tarka engine, hidden-agreement detector, dialogue quality meter).",
+          "A 5-module conceptual SAMVAD engine (pramāṇa classifier, value extractor, Tarka engine, hidden-agreement detector, dialogue quality meter).",
           "End-to-end pipeline design: from raw conversation to profiles, maps, and suggested bridging language.",
           "Visual frameworks: pramāṇa maps, Vada/Jalpa/Vitandā typology, and a Sankey-style flow from Nyāya concepts to policy outcomes.",
           "A detailed implementation blueprint using modern NLP, topic modeling, and visualization tools."
         ],
         findings: [
-          "Most “stuck” disagreements in policy dialogues are epistemological (clashing pramāṇas), not value-based.",
-          "When participants see knowledge sources made visible, defensiveness drops and listening increases.",
+          "Most stuck disagreements in policy dialogues are epistemological (clashing pramāṇas), not value-based.",
+          "When participants see their own and others' knowledge sources made visible, defensiveness drops and listening increases.",
           "Highlighting shared values makes synthesis proposals feel legitimate to all sides.",
           "Grounding AI-mediated dialogue in Nyāya creates richer, more respectful conversations than logic-only framings."
         ]
@@ -872,8 +855,7 @@
         pdf: "https://github.com/Aksh-hu/Akshanshpareek.github.io/blob/main/Bhed%20Bhav.pdf",
         demo: null,
         prototype: null,
-        overview:
-          "BHED BHAV examines how LLMs trained on Western-centric data misrepresent India’s regional and occupational diversity. It develops the first bilingual Indian dataset targeting regional and occupational bias and provides a scalable framework to audit representational harms.",
+        overview: "BHED BHAV examines how LLMs trained on Western-centric data misrepresent India's regional and occupational diversity. It develops the first bilingual Indian dataset targeting regional and occupational bias and provides a scalable framework to audit representational harms.",
         who: [
           "AI researchers and NLP practitioners working on fairness and bias.",
           "Designers and product teams building AI-powered experiences in India.",
@@ -881,7 +863,7 @@
           "Rural, multilingual, and informal workforce users affected by biased AI outputs."
         ],
         built: [
-          "India’s first bilingual dataset addressing regional and occupational bias.",
+          "India's first bilingual dataset addressing regional and occupational bias.",
           "150 curated sentence pairs (100 English, 50 Hindi).",
           "A structured evaluation pipeline using AUL and CLL metrics.",
           "Bias analysis across five LLMs: GPT-2, BERT, DistilBERT, ALBERT, and XLM-RoBERTa."
@@ -902,8 +884,7 @@
         pdf: "https://github.com/Aksh-hu/Akshanshpareek.github.io/blob/main/Creativity%20error%20404.pdf",
         demo: null,
         prototype: null,
-        overview:
-          "Creativity – ERROR 404 is a qualitative research project examining how generative AI tools reshape creativity, authorship, and learning among undergraduate students in Indian universities. It studies how students balance efficiency with creative identity, and how ownership and originality shift in AI-assisted work.",
+        overview: "Creativity – ERROR 404 is a qualitative research project examining how generative AI tools reshape creativity, authorship, and learning among undergraduate students in Indian universities. It studies how students balance efficiency with creative identity, and how ownership and originality shift in AI-assisted work.",
         who: [
           "Educators and institutions integrating AI into creative curricula.",
           "Designers and engineers navigating AI-assisted creative workflows.",
@@ -933,8 +914,7 @@
         pdf: "https://github.com/Aksh-hu/Akshanshpareek.github.io/blob/main/positionality.pdf",
         demo: null,
         prototype: null,
-        overview:
-          "Disclosure Without Engagement is an empirical research project analyzing how positionality statements are used in FAccT papers from 2018 to 2024, and whether researchers move beyond identity disclosure to reflect on how backgrounds influence research decisions.",
+        overview: "Disclosure Without Engagement is an empirical research project analyzing how positionality statements are used in FAccT papers from 2018 to 2024. It examines whether researchers move beyond identity disclosure to meaningfully reflect on how their backgrounds influence research decisions.",
         who: [
           "FAccT and responsible AI researchers.",
           "Conference organizers and policy designers.",
@@ -956,16 +936,15 @@
         ]
       },
       {
-        id: "reddit",
+        id: "reddit-audit",
         title: "Reddit Usability Audit",
         year: "2022",
-        category: "UX audit · Heuristics",
-        short: "UX evaluation of Reddit focusing on participation, discoverability, content engagement, and newcomer onboarding.",
+        category: "UX audit · Community platforms",
+        short: "Comprehensive UX evaluation of Reddit's interaction design, information architecture, and moderation mechanics.",
         pdf: "https://github.com/Aksh-hu/Akshanshpareek.github.io/blob/main/Reddit%20UX%20Audit.pdf",
         demo: null,
         prototype: null,
-        overview:
-          "The Reddit Usability Audit is a UX evaluation of Reddit’s interaction design, information architecture, and moderation mechanics using heuristic evaluation, goal–parameter analysis, and user research.",
+        overview: "The Reddit Usability Audit is a comprehensive UX evaluation of one of the world's largest community-driven platforms. It examines how Reddit's interaction design, information architecture, and moderation mechanics support—or hinder—user participation across diverse communities.",
         who: [
           "New and existing Reddit users navigating complex community structures.",
           "UX designers working on large-scale social platforms.",
@@ -973,8 +952,8 @@
           "Researchers studying participatory and content-moderated systems."
         ],
         built: [
-          "End-to-end usability and heuristic audit.",
-          "Nielsen’s heuristics and goal-oriented parameter evaluation.",
+          "A full end-to-end usability and heuristic audit.",
+          "Nielsen's heuristics and goal-oriented parameter evaluation.",
           "Task-based usability testing and user interviews.",
           "Competitive and pattern analysis of community platforms."
         ],
@@ -990,93 +969,100 @@
         id: "district",
         title: "District by Zomato: Heuristic Usability Evaluation",
         year: "2024",
-        category: "UX evaluation · Transactions",
-        short: "Heuristic evaluation of District focusing on navigation, booking, and payment flows with severity ratings.",
+        category: "UX audit · Booking flows",
+        short: "Heuristic usability evaluation of District's event discovery and ticket booking platform.",
         pdf: "https://github.com/Aksh-hu/Akshanshpareek.github.io/blob/main/Heuristic%20evaluation(district).pdf",
         demo: null,
         prototype: null,
-        overview:
-          "This project is a heuristic usability evaluation of District, Zomato’s event discovery and ticket booking platform. It evaluates alignment with usability principles and identifies friction points across navigation, booking, and payment flows.",
+        overview: "This project is a heuristic usability evaluation of District, Zomato's event discovery and ticket booking platform. Launched in November 2024, District quickly scaled to millions of users, making usability and interaction consistency critical.",
         who: [
           "Users booking events, movies, and dining experiences on District.",
           "Product and UX teams working on large-scale consumer apps.",
           "Designers improving transactional and booking-heavy flows."
         ],
         built: [
-          "Full heuristic evaluation using Nielsen’s 10 usability heuristics.",
+          "A full heuristic evaluation using Nielsen's 10 Usability Heuristics.",
           "Audited core user flows: discovery, navigation, booking, and payment.",
-          "Assigned severity ratings to usability violations.",
-          "Proposed design recommendations aligned with industry conventions."
+          "Severity ratings for usability violations.",
+          "Design recommendations aligned with industry conventions."
         ],
         findings: [
-          "Inconsistent navigation patterns increased confusion and cognitive load.",
-          "No error prevention when leaving payment caused seat selection resets.",
-          "Booking flow lacked recovery from interruptions.",
-          "Recommendations: bottom navigation, confirmation dialogs, resume booking."
+          "Inconsistent navigation patterns conflicted with common mental models, causing confusion.",
+          "Lack of error prevention in payment flow resulted in seat selection resets.",
+          "Poor recovery from interruptions forced users to restart after accidental exits.",
+          "Small interaction gaps significantly affect booking confidence.",
+          "Consistency, feedback, and error prevention are critical for transactional UX."
         ]
       }
     ];
 
-    // -------- PROJECTS RENDER --------
-    const grid = document.getElementById("projects-grid");
-    projects.forEach(p => {
-      const card = document.createElement("div");
-      card.className = "project-card";
-      card.onclick = () => showProjectDetail(p.id);
-      card.innerHTML = `
-        <div class="thumb">${p.year}</div>
-        <div class="project-body">
-          <div class="p-title">${p.title}</div>
-          <div class="p-meta">${p.category}</div>
-          <div class="p-desc">${p.short}</div>
+    // Populate projects grid
+    function populateProjectsGrid() {
+      const grid = document.getElementById("projects-grid");
+      grid.innerHTML = projects.map(p => `
+        <div class="project-card" onclick="showProjectDetail('${p.id}')">
+          <div class="thumb">${p.year}</div>
+          <div class="project-body">
+            <div class="p-title">${p.title}</div>
+            <div class="p-meta">${p.category}</div>
+            <div class="p-desc">${p.short}</div>
+          </div>
         </div>
-      `;
-      grid.appendChild(card);
-    });
+      `).join("");
+    }
 
-    // -------- PROJECT DETAIL VIEW --------
+    // Show project detail
     function showProjectDetail(id) {
-      const p = projects.find(x => x.id === id);
-      if (!p) return;
+      const project = projects.find(p => p.id === id);
+      if (!project) return;
 
-      const links = [];
-      if (p.pdf) links.push(`<a class="btn primary" href="${p.pdf}" target="_blank" rel="noopener">Full Case Study</a>`);
-      if (p.demo) links.push(`<a class="btn dark" href="${p.demo}" target="_blank" rel="noopener">Live Demo</a>`);
-      if (p.prototype) links.push(`<a class="btn ghost" href="${p.prototype}" target="_blank" rel="noopener">Prototype</a>`);
+      let linksHTML = `<div class="links">`;
+      if (project.pdf) linksHTML += `<a class="btn primary" href="${project.pdf}" target="_blank" rel="noopener">Full Case Study (PDF)</a>`;
+      if (project.demo) linksHTML += `<a class="btn dark" href="${project.demo}" target="_blank" rel="noopener">Live Demo</a>`;
+      if (project.prototype) linksHTML += `<a class="btn dark" href="${project.prototype}" target="_blank" rel="noopener">Prototype</a>`;
+      linksHTML += `</div>`;
 
       const html = `
         <div class="detail">
-          <h2>${p.title}</h2>
+          <h2>${project.title}</h2>
           <div class="badges">
-            <span class="badge">${p.year}</span>
-            ${p.category.split(" · ").map(x => `<span class="badge">${x}</span>`).join("")}
+            <span class="badge">${project.year}</span>
+            <span class="badge">${project.category}</span>
           </div>
-          <p class="para" style="margin:0;">${p.overview}</p>
-          <div class="links">${links.join("")}</div>
+          <p class="para">${project.overview}</p>
+          ${linksHTML}
         </div>
 
         <div class="detail">
-          <div class="section-title">Who it’s for</div>
-          <ul class="clean">${p.who.map(x => `<li>${x}</li>`).join("")}</ul>
+          <div class="section-title">Who it's for</div>
+          <ul class="clean">
+            ${project.who.map(w => `<li>${w}</li>`).join("")}
+          </ul>
         </div>
 
         <div class="detail">
           <div class="section-title">What I built</div>
-          <ul class="clean">${p.built.map(x => `<li>${x}</li>`).join("")}</ul>
+          <ul class="clean">
+            ${project.built.map(b => `<li>${b}</li>`).join("")}
+          </ul>
         </div>
 
         <div class="detail">
           <div class="section-title">Key findings</div>
-          <ul class="clean">${p.findings.map(x => `<li>${x}</li>`).join("")}</ul>
+          <ul class="clean">
+            ${project.findings.map(f => `<li>${f}</li>`).join("")}
+          </ul>
         </div>
       `;
 
       document.getElementById("project-detail-content").innerHTML = html;
       showPage("project-detail");
+      window.scrollTo(0, 0);
     }
 
-    // -------- INIT --------
-    document.getElementById("year").textContent = new Date().getFullYear();
+    // Initialize
+    document.getElementById("year").innerText = new Date().getFullYear();
+    populateProjectsGrid();
   </script>
 </body>
 </html>
