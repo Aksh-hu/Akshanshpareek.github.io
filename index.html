@@ -1014,10 +1014,8 @@
     // Show project detail
     function showProjectDetail(id) {
       const project = projects.find(p => p.id === id);
-      if (!project) return;
-
-      let linksHTML = `<div class="links">`;
-      if (project.pdf) linksHTML += `<a class="btn primary" href="${project.pdf}" target="_blank" rel="noopener">Full Case Study (PDF)</a>`;
+      if (!project) return;        let linksHTML = `<div class="links">`;
+      if (project.pdf) linksHTML += `<a class="btn primary" href="${project.pdf.replace('blob/main', 'raw/main')}" target="_blank" rel="noopener">Full Case Study (PDF)</a>`;
       if (project.demo) linksHTML += `<a class="btn dark" href="${project.demo}" target="_blank" rel="noopener">Live Demo</a>`;
       if (project.prototype) linksHTML += `<a class="btn dark" href="${project.prototype}" target="_blank" rel="noopener">Prototype</a>`;
       linksHTML += `</div>`;
