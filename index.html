@@ -4,43 +4,38 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Akshansh Pareek — Research & Design</title>
+
   <style>
     :root {
       --bg: #f8f9fc;
       --card: #ffffff;
-      --card-light: #f9fafb;
-      --text: #111827;
-      --muted: #6b7280;
+      --cardLight: #f7f8fb;
+      --text: #0f172a;
+      --muted: #64748b;
       --border: #e5e7eb;
-      --shadow: 0 2px 10px rgba(17, 24, 39, 0.06);
-      --shadow-hover: 0 12px 32px rgba(17, 24, 39, 0.14);
+      --shadow: 0 2px 10px rgba(15, 23, 42, 0.06);
+      --shadowHover: 0 14px 34px rgba(15, 23, 42, 0.14);
       --accent: #2563eb;
       --accent2: #1d4ed8;
-      --chip-bg: #eef2ff;
-      --chip-border: #dbeafe;
-      --radius: 16px;
+      --radius: 18px;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, "Helvetica Neue", Arial, sans-serif;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.68;
+      line-height: 1.75;
     }
 
     .container {
-      max-width: 1140px;
+      max-width: 1160px;
       margin: 0 auto;
-      padding: 40px 20px 80px;
+      padding: 42px 20px 80px;
     }
 
-    /* Navigation */
+    /* NAV */
     nav {
       background: var(--card);
       border: 1px solid var(--border);
@@ -48,31 +43,28 @@
       border-radius: var(--radius);
       padding: 18px 24px;
       margin-bottom: 28px;
+
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      gap: 18px;
       flex-wrap: wrap;
     }
 
-    .brand {
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-    }
-
     .brand strong {
+      display: block;
       font-size: 14px;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: var(--text);
       font-weight: 900;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
     }
 
     .brand span {
+      display: block;
       font-size: 12px;
       color: var(--muted);
-      font-weight: 600;
+      font-weight: 650;
+      margin-top: 4px;
     }
 
     .nav-links {
@@ -86,11 +78,11 @@
       font-size: 14px;
       color: var(--muted);
       text-decoration: none;
-      font-weight: 700;
+      font-weight: 800;
       padding: 10px 2px;
       border-bottom: 2px solid transparent;
-      transition: all 0.25s ease;
       cursor: pointer;
+      transition: all 0.25s ease;
     }
 
     .nav-link:hover,
@@ -99,48 +91,42 @@
       border-bottom-color: var(--accent);
     }
 
-    /* Page Sections */
-    .page-section {
-      display: none;
-    }
+    /* PAGES */
+    .page-section { display: none; }
+    .page-section.active { display: block; }
 
-    .page-section.active {
-      display: block;
-    }
-
-    /* Hero Section */
+    /* HERO */
     .hero {
       background: var(--card);
       border: 1px solid var(--border);
       box-shadow: var(--shadow);
       border-radius: var(--radius);
-      padding: 48px 40px;
+      padding: 52px 44px;
       margin-bottom: 28px;
     }
 
     h1 {
       font-size: 42px;
+      font-weight: 950;
       letter-spacing: -0.02em;
       margin-bottom: 10px;
-      font-weight: 900;
     }
 
     .subtitle {
       font-size: 16px;
+      font-weight: 900;
       color: var(--accent);
-      font-weight: 800;
-      margin-bottom: 24px;
+      margin-bottom: 22px;
     }
 
     .para {
       font-size: 15px;
       color: #1f2937;
       margin-bottom: 16px;
-      line-height: 1.75;
     }
 
     .para strong {
-      font-weight: 800;
+      font-weight: 900;
       color: var(--text);
     }
 
@@ -148,33 +134,33 @@
       display: flex;
       gap: 12px;
       flex-wrap: wrap;
-      margin-top: 24px;
+      margin-top: 22px;
     }
 
     .pill {
       font-size: 13px;
-      color: var(--accent);
+      font-weight: 850;
       text-decoration: none;
-      font-weight: 800;
-      background: #f1f5ff;
+      color: var(--accent);
+      background: #eef2ff;
       border: 1px solid #dbeafe;
       border-radius: 12px;
       padding: 11px 14px;
       transition: all 0.2s ease;
-      cursor: pointer;
     }
 
     .pill:hover {
+      transform: translateY(-2px);
       background: #eff6ff;
       border-color: #bfdbfe;
-      transform: translateY(-2px);
     }
 
+    /* SECTION HEADERS */
     h2 {
       font-size: 26px;
-      margin: 32px 0 18px;
+      font-weight: 950;
       letter-spacing: -0.01em;
-      font-weight: 900;
+      margin: 34px 0 18px;
     }
 
     .card {
@@ -182,14 +168,10 @@
       border: 1px solid var(--border);
       box-shadow: var(--shadow);
       border-radius: var(--radius);
-      padding: 24px;
+      padding: 26px;
     }
 
-    /* Updates */
-    .updates {
-      margin-top: 16px;
-    }
-
+    /* UPDATES */
     .update-item {
       display: grid;
       grid-template-columns: 120px 1fr;
@@ -197,67 +179,64 @@
       padding: 14px 0;
       border-bottom: 1px solid #f1f5f9;
     }
-
-    .update-item:last-child {
-      border-bottom: none;
-    }
+    .update-item:last-child { border-bottom: none; }
 
     .update-date {
       font-size: 11px;
-      font-weight: 900;
+      font-weight: 950;
       color: var(--muted);
       text-transform: uppercase;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.09em;
     }
 
     .update-text {
       font-size: 14px;
-      color: #111827;
-      line-height: 1.6;
+      color: #0f172a;
     }
 
-    /* Chips */
+    /* CHIPS */
     .chips {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-top: 12px;
+      margin-top: 10px;
     }
 
     .chip {
-      background: var(--chip-bg);
-      border: 1px solid var(--chip-border);
-      color: var(--accent2);
       font-size: 13px;
-      font-weight: 750;
+      font-weight: 800;
+      color: #1e40af;
+      background: #eef2ff;
+      border: 1px solid #dbeafe;
       padding: 10px 14px;
       border-radius: 999px;
       white-space: nowrap;
     }
 
-    /* Projects Grid */
-    .projects-intro {
-      color: var(--muted);
-      font-size: 14px;
-      margin: 12px 0 20px;
-      line-height: 1.6;
-    }
-
+    /* GRIDS */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-      gap: 20px;
-      margin-top: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 22px;
+      margin-top: 18px;
     }
 
+    .projects-intro {
+      font-size: 14px;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    /* PROJECT CARD */
     .project-card {
-      background: var(--card-light);
+      background: var(--cardLight);
       border: 1px solid var(--border);
       box-shadow: var(--shadow);
       border-radius: var(--radius);
       overflow: hidden;
       cursor: pointer;
       transition: all 0.3s ease;
+
       min-height: 340px;
       display: flex;
       flex-direction: column;
@@ -265,377 +244,227 @@
 
     .project-card:hover {
       transform: translateY(-8px);
-      box-shadow: var(--shadow-hover);
-      border-color: var(--accent);
+      box-shadow: var(--shadowHover);
+      border-color: #bfdbfe;
     }
 
     .thumb {
       height: 110px;
+      padding: 18px;
       display: flex;
       align-items: flex-end;
-      padding: 18px 18px 16px;
-      background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
-      color: #fff;
-      font-weight: 900;
+      font-weight: 950;
+      color: white;
       letter-spacing: -0.01em;
-      font-size: 17px;
-    }
-
-    .project-card:nth-child(2) .thumb {
-      background: linear-gradient(135deg, #0ea5e9 0%, #2563eb 100%);
-    }
-    .project-card:nth-child(3) .thumb {
-      background: linear-gradient(135deg, #7c3aed 0%, #db2777 100%);
-    }
-    .project-card:nth-child(4) .thumb {
-      background: linear-gradient(135deg, #16a34a 0%, #0ea5e9 100%);
-    }
-    .project-card:nth-child(5) .thumb {
-      background: linear-gradient(135deg, #f97316 0%, #ef4444 100%);
-    }
-    .project-card:nth-child(6) .thumb {
-      background: linear-gradient(135deg, #111827 0%, #2563eb 100%);
-    }
-    .project-card:nth-child(7) .thumb {
-      background: linear-gradient(135deg, #06b6d4 0%, #22c55e 100%);
-    }
-    .project-card:nth-child(8) .thumb {
-      background: linear-gradient(135deg, #a855f7 0%, #2563eb 100%);
-    }
-    .project-card:nth-child(9) .thumb {
-      background: linear-gradient(135deg, #ef4444 0%, #f59e0b 100%);
-    }
-    .project-card:nth-child(10) .thumb {
-      background: linear-gradient(135deg, #64748b 0%, #0ea5e9 100%);
-    }
-    .project-card:nth-child(11) .thumb {
-      background: linear-gradient(135deg, #f59e0b 0%, #22c55e 100%);
+      background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
     }
 
     .project-body {
-      padding: 20px;
+      padding: 20px 22px 24px;
       flex: 1;
       display: flex;
       flex-direction: column;
+      gap: 10px;
     }
 
     .p-title {
       font-size: 17px;
-      font-weight: 900;
-      margin-bottom: 8px;
-      color: var(--text);
+      font-weight: 950;
     }
 
     .p-meta {
       font-size: 12px;
       color: var(--muted);
-      font-weight: 700;
-      margin-bottom: 12px;
+      font-weight: 800;
     }
 
     .p-desc {
       font-size: 14px;
-      color: #374151;
-      line-height: 1.6;
-      flex: 1;
+      color: #334155;
+      line-height: 1.65;
+      margin-top: 2px;
     }
 
-    /* Detail View */
+    /* DETAIL PAGE */
     .back {
       display: inline-block;
       margin: 6px 0 18px;
       color: var(--accent);
-      font-weight: 900;
+      font-weight: 950;
       text-decoration: none;
       cursor: pointer;
       font-size: 14px;
     }
 
-    .back:hover {
-      text-decoration: underline;
-    }
+    .back:hover { text-decoration: underline; }
 
     .detail {
       background: var(--card);
       border: 1px solid var(--border);
       box-shadow: var(--shadow);
       border-radius: var(--radius);
-      padding: 28px;
-      margin-bottom: 16px;
+      padding: 30px;
+      margin-bottom: 18px;
     }
 
     .detail h2 {
-      margin: 0 0 14px;
+      margin: 0 0 12px;
       font-size: 28px;
     }
 
     .badges {
       display: flex;
-      gap: 10px;
       flex-wrap: wrap;
-      margin: 14px 0 18px;
+      gap: 10px;
+      margin: 12px 0 16px;
     }
 
     .badge {
+      font-size: 12px;
+      font-weight: 900;
+      color: #0f172a;
       background: #f8fafc;
       border: 1px solid var(--border);
-      border-radius: 999px;
       padding: 8px 12px;
-      font-size: 12px;
-      font-weight: 800;
-      color: #111827;
+      border-radius: 999px;
     }
 
     .links {
       display: flex;
-      gap: 12px;
       flex-wrap: wrap;
-      margin: 16px 0 8px;
+      gap: 12px;
+      margin-top: 14px;
     }
 
     .btn {
       display: inline-block;
-      background: var(--accent);
-      color: #fff;
+      border: none;
+      cursor: pointer;
       text-decoration: none;
-      font-weight: 800;
+      font-weight: 900;
       font-size: 13px;
       padding: 12px 14px;
       border-radius: 12px;
       transition: all 0.25s ease;
-      border: none;
-      cursor: pointer;
     }
 
-    .btn:hover {
-      background: var(--accent2);
-      transform: translateY(-2px);
-    }
+    .btn.primary { background: var(--accent); color: white; }
+    .btn.primary:hover { background: var(--accent2); transform: translateY(-2px); }
 
-    .btn.secondary {
-      background: #0f172a;
-    }
+    .btn.dark { background: #0f172a; color: white; }
+    .btn.dark:hover { background: #111827; transform: translateY(-2px); }
 
-    .btn.secondary:hover {
-      background: #111827;
-    }
-
-    .btn.ghost {
-      background: #f8fafc;
-      border: 1px solid var(--border);
-      color: #111827;
-    }
-
-    .btn.ghost:hover {
-      background: #eff6ff;
-      border-color: #bfdbfe;
-      color: #1d4ed8;
-    }
+    .btn.ghost { background: #f8fafc; border: 1px solid var(--border); color: #0f172a; }
+    .btn.ghost:hover { background: #eff6ff; border-color: #bfdbfe; color: #1d4ed8; transform: translateY(-2px); }
 
     .section-title {
       font-size: 12px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
+      font-weight: 950;
       color: var(--muted);
-      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
       margin-bottom: 12px;
     }
 
-    ul.clean {
-      margin-left: 20px;
-      color: #111827;
-      font-size: 14px;
-    }
+    ul.clean { margin-left: 20px; font-size: 14px; }
+    ul.clean li { margin-bottom: 10px; color: #0f172a; }
 
-    ul.clean li {
-      margin-bottom: 10px;
-      line-height: 1.65;
-    }
-
-    /* Other Page Cards */
+    /* OTHER PAGE */
     .other-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-      gap: 20px;
-      margin-top: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 22px;
+      margin-top: 18px;
     }
 
     .other-card {
-      background: var(--card-light);
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
       border-radius: var(--radius);
-      padding: 28px;
+      padding: 30px;
+      min-height: 240px;
       cursor: pointer;
       transition: all 0.3s ease;
-      min-height: 240px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+
       display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: center;
       text-align: center;
-    }
-
-    .other-card:nth-child(1) {
-      background: linear-gradient(135deg, #eff6ff 0%, #f8fafc 100%);
-      border: 1.5px solid #dbeafe;
-    }
-
-    .other-card:nth-child(2) {
-      background: linear-gradient(135deg, #f8fafc 0%, #fef3c7 100%);
-      border: 1.5px solid #fcd34d;
+      gap: 8px;
     }
 
     .other-card:hover {
       transform: translateY(-8px);
-      box-shadow: var(--shadow-hover);
+      box-shadow: var(--shadowHover);
+    }
+
+    .other-card.photo {
+      background: linear-gradient(135deg, #eff6ff 0%, #ffffff 100%);
+      border-color: #dbeafe;
+    }
+
+    .other-card.showreels {
+      background: linear-gradient(135deg, #fff7ed 0%, #ffffff 100%);
+      border-color: #fed7aa;
     }
 
     .other-card h3 {
       font-size: 20px;
-      margin-bottom: 10px;
-      letter-spacing: -0.01em;
-      font-weight: 900;
+      font-weight: 950;
     }
 
     .other-card p {
-      color: var(--muted);
       font-size: 14px;
-      line-height: 1.6;
+      color: var(--muted);
     }
 
-    /* YouTube Grid */
+    .photo-wrap {
+      margin-top: 18px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      background: white;
+    }
+
+    .photo-wrap img { width: 100%; display: block; }
+
     .yt-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 14px;
       margin-top: 16px;
     }
 
     .yt-box {
       background: #000;
-      border-radius: 12px;
+      border-radius: 14px;
       overflow: hidden;
-      aspect-ratio: 16 / 9;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      border: 1px solid #e5e7eb;
-    }
-
-    .yt-box:hover {
-      transform: scale(1.04);
-    }
-
-    .yt-box iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-
-    /* Photography Image */
-    .photo-container {
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .photo-container:hover {
-      transform: scale(1.02);
-    }
-
-    .photo-container img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    /* CV Content */
-    .cv-content {
-      background: var(--card);
       border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-      border-radius: var(--radius);
-      padding: 32px;
-      margin-top: 16px;
-      line-height: 1.8;
-      font-size: 14px;
-      color: #374151;
+      aspect-ratio: 16 / 9;
     }
 
-    .cv-content h3 {
-      font-size: 16px;
-      font-weight: 900;
-      margin: 24px 0 12px;
-      color: var(--text);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
+    .yt-box iframe { width: 100%; height: 100%; border: none; }
 
-    .cv-content h4 {
-      font-size: 15px;
-      font-weight: 900;
-      margin: 14px 0 6px;
-      color: var(--text);
-    }
-
-    .cv-content .date {
-      font-size: 12px;
-      color: var(--muted);
-      font-weight: 700;
-    }
-
-    .cv-content ul {
-      margin: 8px 0 12px 20px;
-    }
-
-    .cv-content li {
-      margin-bottom: 6px;
-    }
-
-    /* Footer */
+    /* FOOTER */
     footer {
-      margin-top: 40px;
+      margin-top: 44px;
       text-align: center;
-      color: #9ca3af;
+      color: #94a3b8;
       font-size: 13px;
     }
 
-    @media (max-width: 768px) {
-      .hero {
-        padding: 32px 24px;
-      }
-
-      h1 {
-        font-size: 32px;
-      }
-
-      .grid,
-      .other-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .update-item {
-        grid-template-columns: 1fr;
-        gap: 8px;
-      }
-
-      nav {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .nav-links {
-        width: 100%;
-      }
+    @media (max-width: 780px) {
+      .hero { padding: 36px 24px; }
+      h1 { font-size: 32px; }
+      .grid, .other-grid { grid-template-columns: 1fr; }
+      .update-item { grid-template-columns: 1fr; gap: 8px; }
     }
   </style>
 </head>
 
 <body>
   <div class="container">
-    <!-- Navigation -->
     <nav>
       <div class="brand">
         <strong>Akshansh Pareek</strong>
@@ -650,15 +479,16 @@
       </div>
     </nav>
 
-    <!-- ABOUT PAGE -->
+    <!-- ABOUT -->
     <section id="about" class="page-section active">
       <div class="hero">
         <h1>Akshansh Pareek</h1>
-        <p class="subtitle">Researcher & Designer</p>
+        <div class="subtitle">Researcher & Designer</div>
 
         <p class="para">
-          Hi, I'm Akshansh Pareek — a researcher and designer working at the intersection of <strong>computational social science</strong>, <strong>NLP</strong>, <strong>participatory research</strong>, and <strong>algorithmic fairness</strong>.
-          I currently collaborate with the University of Cambridge on research into institutional and geographic bias in academic publishing, and I've also worked with the MIT Media Lab on an empirical study examining positionality statements in fairness and transparency research.
+          Hi, I’m Akshansh Pareek — a researcher and designer working at the intersection of
+          <strong>computational social science</strong>, <strong>NLP</strong>, <strong>participatory research</strong>, and <strong>algorithmic fairness</strong>.
+          I currently collaborate with the University of Cambridge on research into institutional and geographic bias in academic publishing, and I’ve also worked with the MIT Media Lab on an empirical study examining positionality statements in fairness and transparency research.
           I earned my Bachelor of Design from Delhi Technological University (DTU), where my thesis explored regional and occupational bias in large language models.
         </p>
 
@@ -668,37 +498,29 @@
 
         <div class="meta-links">
           <a class="pill" href="mailto:akshanshpareek25@gmail.com">Email</a>
-          <a class="pill" href="https://aksh-hu.github.io/Akshanshpareek.github.io/Akshansh__CV_.pdf" target="_blank" rel="noopener">CV (PDF)</a>
+          <a class="pill" href="https://github.com/Aksh-hu/Akshanshpareek.github.io/blob/main/Akshansh__CV_.pdf" target="_blank" rel="noopener">CV (PDF)</a>
           <a class="pill" href="https://www.linkedin.com/in/akshansh-pareek-95060a223/" target="_blank" rel="noopener">LinkedIn</a>
           <a class="pill" href="https://github.com/Aksh-hu" target="_blank" rel="noopener">GitHub</a>
           <a class="pill" href="https://orcid.org/0009-0001-4195-4877" target="_blank" rel="noopener">ORCID</a>
         </div>
       </div>
 
-      <!-- Updates -->
       <h2>Updates</h2>
-      <div class="card updates">
+      <div class="card">
         <div class="update-item">
           <div class="update-date">Jun 2025</div>
-          <div class="update-text">
-            <strong>Disclosure Without Engagement:</strong> An Empirical Review of Positionality Statements at FAccT — published at FAccT.
-          </div>
+          <div class="update-text">Disclosure Without Engagement: An Empirical Review of Positionality Statements at FAccT — published at FAccT.</div>
         </div>
         <div class="update-item">
           <div class="update-date">Feb 2025</div>
-          <div class="update-text">
-            <strong>Creativity – ERROR 404:</strong> Navigating creativity and ownership in the age of AI-assisted students — accepted at ICED.
-          </div>
+          <div class="update-text">Creativity – ERROR 404: Navigating creativity and ownership in the age of AI-assisted students — accepted at ICED.</div>
         </div>
         <div class="update-item">
           <div class="update-date">Nov 2025</div>
-          <div class="update-text">
-            <strong>Exploring the Use of a Web-Based 3D Virtual Environment</strong> for Interior Design Work Exhibitions — accepted at International Journal of Architectural Computing.
-          </div>
+          <div class="update-text">Exploring the Use of a Web-Based 3D Virtual Environment for Interior Design Work Exhibitions — accepted at the International Journal of Architectural Computing.</div>
         </div>
       </div>
 
-      <!-- Research Interests -->
       <h2>Research interests</h2>
       <div class="card">
         <div class="chips">
@@ -709,22 +531,21 @@
           <div class="chip">AI Ethics</div>
           <div class="chip">NLP</div>
           <div class="chip">Data Privacy</div>
-          <div class="chip">Participatory Research</div>
+          <div class="chip">Participatory research</div>
           <div class="chip">Algorithmic Bias & Fairness</div>
           <div class="chip">Social Media Analysis</div>
           <div class="chip">Communication Interfaces</div>
         </div>
       </div>
 
-      <!-- Featured Work -->
       <h2>Featured work</h2>
       <div class="grid">
         <div class="project-card" onclick="showProjectDetail('finequity')">
           <div class="thumb">2025</div>
           <div class="project-body">
             <div class="p-title">FinEquity</div>
-            <div class="p-meta">Participatory audit platform · Microfinance</div>
-            <div class="p-desc">Evidence-building tool for SHG borrowers to document loan outcomes and create group-level evidence for appeals.</div>
+            <div class="p-meta">Participatory platform · Microfinance</div>
+            <div class="p-desc">Evidence-building tool for SHG borrowers to document outcomes and support appeals.</div>
           </div>
         </div>
 
@@ -732,8 +553,8 @@
           <div class="thumb">2025</div>
           <div class="project-body">
             <div class="p-title">VoiceWeave</div>
-            <div class="p-meta">NLP · Dialogue structure analysis</div>
-            <div class="p-desc">Detects contribution suppression in group conversations using structural features in dialogue transcripts.</div>
+            <div class="p-meta">NLP · Dialogue analytics</div>
+            <div class="p-desc">Detects likely contribution suppression using structural signals in transcripts.</div>
           </div>
         </div>
 
@@ -742,19 +563,16 @@
           <div class="project-body">
             <div class="p-title">SAMVAD</div>
             <div class="p-meta">Dialogue through epistemology</div>
-            <div class="p-desc">Nyāya-grounded dialogue analysis to reduce polarization and support evidence-based synthesis.</div>
+            <div class="p-desc">Nyāya-grounded dialogue analysis for synthesis and reduced polarization.</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- PROJECTS PAGE -->
+    <!-- PROJECTS -->
     <section id="projects" class="page-section">
       <h2>All projects</h2>
-      <p class="projects-intro">
-        Click any project to view a detailed overview, key findings, and links to the full case study, live demo, prototype, or code.
-      </p>
-
+      <div class="projects-intro">Click any project to open the full case study, demo, or prototype (when available).</div>
       <div class="grid" id="projects-grid"></div>
     </section>
 
@@ -764,282 +582,140 @@
       <div id="project-detail-content"></div>
     </section>
 
-    <!-- CV PAGE -->
+    <!-- CV -->
     <section id="cv" class="page-section">
       <h2>Curriculum Vitae</h2>
       <div class="card">
-        <p class="para" style="margin-bottom: 14px;">
-          Download or view my complete CV below. For the latest updates, download the PDF.
+        <p class="para" style="margin-bottom: 12px;">
+          Download the CV as a PDF (recommended).
         </p>
         <div class="links">
-          <a class="btn" href="https://aksh-hu.github.io/Akshanshpareek.github.io/Akshansh__CV_.pdf" target="_blank" rel="noopener">Download CV (PDF)</a>
+          <!-- Uses blob link for guaranteed non-404 -->
+          <a class="btn primary" href="https://github.com/Aksh-hu/Akshanshpareek.github.io/blob/main/Akshansh__CV_.pdf" target="_blank" rel="noopener">Download CV (PDF)</a>
         </div>
+        <p class="para" style="margin-top: 12px; color: var(--muted);">
+          If you want the CV to open on the GitHub Pages domain (not GitHub), rename the file to something simple like <strong>cv.pdf</strong> and place it in the repo root.
+        </p>
       </div>
 
-      <div class="cv-content">
-        <h3>Education</h3>
-        <h4>Delhi Technological University (DTU), New Delhi, Delhi, India</h4>
-        <p class="date">Bachelors of Design | Aug 2021 – May 2025</p>
-        <ul>
-          <li>First Class with Distinction · CGPA 8.4/10.0</li>
-          <li><strong>Thesis:</strong> BHED-BHAV: Measuring Regional and Occupational Bias in Large Language Models (Grade: A+)</li>
-        </ul>
-
-        <h3>Research & Professional Experience</h3>
-
-        <h4>Research Assistant/Collaborator</h4>
-        <p class="date">University of Cambridge | Aug 2025 – Present</p>
-        <ul>
-          <li>Research Lead: Study on institutional and geographic bias in academic publishing; scoped research questions, defined hypotheses, and aligned deliverables with lab goals and ethics requirements.</li>
-          <li>Designing controlled experiments by altering author affiliations to compare treatment of submissions from developing vs. developed countries.</li>
-          <li>Supervision: Prof. Alan Blackwell</li>
-        </ul>
-
-        <h4>Research Collaborator</h4>
-        <p class="date">MIT Media Lab | Oct 2024 – May 2025</p>
-        <ul>
-          <li>Co-authored an empirical study with Hope Schroeder (MIT PhD) and Dr. Solon Barocas (Microsoft Research) analyzing all FAccT positionality statements from 2018–2024.</li>
-          <li>Examined what identity aspects researchers disclose and how often they connect these disclosures to methodological impact.</li>
-          <li>Identified key risks: shallow identity disclosure without engagement, limited reflection on industry affiliation, and cases where identity was used to justify methodological choices.</li>
-          <li>Contributed to recommendations to strengthen reflexive practice and improve reporting standards in fairness and transparency research.</li>
-        </ul>
-
-        <h4>Research Assistant</h4>
-        <p class="date">University of Bristol | Aug 2024 – Sept 2024</p>
-        <ul>
-          <li>Reviewed and synthesized literature on narrative generation, NPC behavior, player engagement, coherence, memory, and technical constraints in LLM-powered game agents.</li>
-          <li>Identified key risks — psychological effects on players, and unsafe or inappropriate AI NPC outputs — underscoring the need for stronger moderation frameworks.</li>
-          <li>Co-authored a R&D report and presented recommendations to project partners.</li>
-          <li>Supervision: Dr. Richard Cole</li>
-        </ul>
-
-        <h4>Research Assistant</h4>
-        <p class="date">University of Glasgow | Feb 2024 – May 2024</p>
-        <ul>
-          <li>Built Excel-based multiplayer RPG prototypes with interactive macros/forms to test lightweight, accessible multi-agent interactions and rapid balancing.</li>
-          <li>Researched early image-to-video generation tools with a focus on technical pipelines (frame interpolation, motion estimation, temporal consistency) and constraints for deployment.</li>
-        </ul>
-
-        <h4>Research Assistant</h4>
-        <p class="date">University of Manitoba (Department of Computer Science) | Sept 2023 – June 2024</p>
-        <ul>
-          <li>Developed a 3D virtual gallery (Spot Virtual) to exhibit interior design student work and organized an online opening event.</li>
-          <li>Collected and analyzed participant interviews, visitor surveys, and curator feedback to study engagement and communication patterns.</li>
-          <li>Found positive impact on social interaction, accessibility, and flexibility of exhibitions. Paper accepted at International Journal of Architectural Computing.</li>
-          <li>Supervision: Prof. Celine Latulipe</li>
-        </ul>
-
-        <h4>HCI Research Intern</h4>
-        <p class="date">Concordia University | Sept 2023 – Jan 2024</p>
-        <ul>
-          <li>Conducted a focused literature review on generative AI in interaction design, covering LLM-assisted workflows and visual generation tools.</li>
-          <li>Planned and ran usability tests for the Edgy AI Chatbot; synthesized task analytics and qualitative feedback to refine conversation flows, tone, and error-recovery patterns.</li>
-        </ul>
-
-        <h4>UX Research Intern</h4>
-        <p class="date">Indian Institute of Technology Guwahati, Assam | May 2023 – July 2023</p>
-        <ul>
-          <li>Conducted research on product design methodologies in the medical sector and analyzed market trends.</li>
-          <li>Co-developed a medical product development workshop manual covering design and marketing best practices for entrepreneurs.</li>
-          <li>Supervision: Dr. Debayan Dhar & Dr. Neelarnab Dutta</li>
-        </ul>
-
-        <h3>Teaching Experience</h3>
-
-        <h4>Instructor and Mentor</h4>
-        <p class="date">Divergent Classes, Delhi | April 2024 – Nov 2025</p>
-        <ul>
-          <li>Mentored 150+ students for competitive design exams (UCEED, NID, NIFT), covering design aptitude, assessment, and design thinking.</li>
-          <li>Conducted classes and provided personalized feedback to improve creative problem-solving and design skills.</li>
-          <li>Guided students in portfolio development and exam strategies to improve admission outcomes.</li>
-        </ul>
-
-        <h3>Featured Projects</h3>
-
-        <h4>FinEquity: Participatory Algorithm Auditing for Microfinance</h4>
-        <ul>
-          <li>Designed and deployed accessible platform enabling SHG members and handloom workers to identify and document bias in microfinance lending algorithms.</li>
-          <li>Conducted field testing with 50+ SHG members and handloom workers; validated platform usability and bias detection accuracy.</li>
-          <li>Potential reach: 78 million borrowers; creates data-driven social justice infrastructure for algorithmic accountability in informal finance sector.</li>
-        </ul>
-
-        <h4>Svabhāva Reflective Agency System</h4>
-        <ul>
-          <li>Co-developed pluralistic framework operationalizing cultural and decolonial ethics into six actionable AI self-reflection principles.</li>
-          <li>Designed mechanisms (multi-lens interpretation, role-adaptive prompts, data sovereignty) addressing documented 25–45% error disparities for marginalized groups.</li>
-          <li>Contributes to critical gap in epistemic justice and algorithmic fairness literature.</li>
-        </ul>
-
-        <h4>VoiceWeave: Dialogue Suppression Detection System</h4>
-        <ul>
-          <li>Designed and implemented end-to-end ML system detecting and predicting voice suppression in multi-party group discussions.</li>
-          <li>Trained Random Forest classifier on ~38,000 labeled dialogue turns; achieved high test accuracy using linguistically motivated features (utterance length, speaker diversity, turn frequency).</li>
-          <li>Engineered interpretable feature pipeline in conversational mechanics—surfacing how participation imbalance drives suppression risk rather than using opaque embeddings.</li>
-        </ul>
-
-        <h4>SAMVAD AI</h4>
-        <ul>
-          <li>Engineered adaptive tool applying Vedic philosophical principles to analyze conversational flow, structure, and underlying value systems.</li>
-          <li>Developed algorithms detecting subtle agreement patterns and meaning-making processes across diverse participant viewpoints.</li>
-          <li>Applicable to real-world written/spoken dialogues; bridges computational analysis with philosophical hermeneutics for inclusive communication.</li>
-        </ul>
-
-        <h3>Publications</h3>
-
-        <h4>Academic Conference Publications</h4>
-        <ul>
-          <li><strong>C.1.</strong> Schroeder, H., Pareek, A., & Barocas, S. (2025). "Disclosure without Engagement: An Empirical Review of Positionality Statements at FAccT." <em>Proceedings of the 2025 ACM Conference on Fairness, Accountability, and Transparency (FAccT '25)</em>. <a href="https://doi.org/10.1145/3715275.3732079" target="_blank" rel="noopener">https://doi.org/10.1145/3715275.3732079</a></li>
-        </ul>
-
-        <h4>Accepted Papers & Preprints</h4>
-        <ul>
-          <li><strong>R.1.</strong> Pareek, A., Goswami, T., & Singh, R. (2025). "Creativity - ERROR 404: Navigating Creativity and Ownership in the Age of AI-Assisted Students." Manuscript accepted at ICED 2025.</li>
-          <li><strong>R.2.</strong> Co-author. "Exploring the Use of a Web-Based 3D Virtual Environment for Interior Design Work Exhibitions." Manuscript accepted at <em>International Journal of Architectural Computing</em>.</li>
-        </ul>
-
-        <h3>Technical & Design Skills</h3>
-
-        <h4>Programming Languages</h4>
-        <p>Python, R</p>
-
-        <h4>Machine Learning & Data Science</h4>
-        <p>TensorFlow, Keras, scikit-learn, pandas, NumPy, matplotlib, seaborn, plotly</p>
-
-        <h4>Design</h4>
-        <p>Interaction Design, Market Research, UX Auditing, Usability Testing, Data Visualization, UI Design, Wireframing, Information Architecture, System Analysis, 3D Modelling, Video Editing</p>
-
-        <h4>Certifications</h4>
-        <ul>
-          <li>Human Computer Interaction and User Experience Design (Indian Institute of Technology Guwahati)</li>
-          <li>Introduction to Transformative AI (Blue Dot Impact)</li>
-          <li>AI Governance (Blue Dot Impact)</li>
-          <li>Deep Learning Specialization (Coursera)</li>
-        </ul>
+      <div class="card" style="margin-top: 18px;">
+        <div class="section-title">CV (text version)</div>
+        <p class="para" style="color: var(--muted); margin-bottom: 0;">
+          The detailed CV is available in the PDF above.
+        </p>
       </div>
     </section>
 
-    <!-- OTHER PAGE -->
+    <!-- OTHER -->
     <section id="other" class="page-section">
       <h2>Other work</h2>
 
       <div class="other-grid">
-        <!-- Photography Card -->
-        <div class="other-card" onclick="openPhoto()">
-          <h3>📸 Photography</h3>
-          <p>A curated visual collection. Click to explore.</p>
+        <div class="other-card photo" onclick="openPhoto()">
+          <h3>Photography</h3>
+          <p>Curated visual collection. Click to open.</p>
         </div>
 
-        <!-- 3D Showreels Card -->
-        <div class="other-card" onclick="toggleShowreels()">
-          <h3>🎬 3D Art Showreels</h3>
-          <p>Unreal Engine & Unity short films. Click to view.</p>
+        <div class="other-card showreels" onclick="toggleShowreels(true)">
+          <h3>3D Art Showreels</h3>
+          <p>Unreal Engine / Unity short videos. Click to view.</p>
         </div>
       </div>
 
-      <!-- Photography Modal (hidden by default) -->
-      <div id="photo-modal" style="display: none; margin-top: 28px;">
-        <a class="back" onclick="closePhoto()">← Back</a>
-        <div class="card" style="margin-top: 12px;">
-          <div class="photo-container">
-            <img src="https://raw.githubusercontent.com/Aksh-hu/Akshanshpareek.github.io/main/Desktop%20-%201.png" alt="Photography collection" style="width: 100%; height: auto;" />
-          </div>
+      <!-- Photography -->
+      <div id="photo-section" style="display:none; margin-top: 18px;">
+        <a class="back" onclick="openPhoto(false)">← Back</a>
+        <div class="photo-wrap">
+          <!-- raw.githubusercontent link renders image directly -->
+          <img src="https://raw.githubusercontent.com/Aksh-hu/Akshanshpareek.github.io/main/Desktop%20-%201.png" alt="Photography collage" />
         </div>
       </div>
 
-      <!-- 3D Showreels Section (hidden by default) -->
-      <div id="showreels-section" style="display: none; margin-top: 28px;">
-        <a class="back" onclick="toggleShowreels()">← Back</a>
-        <h2 style="margin: 18px 0;">YouTube Showreels</h2>
-        <div class="yt-grid">
-          <div class="yt-box">
-            <iframe src="https://www.youtube.com/embed/yM8Uyrlwob0" allowfullscreen="" loading="lazy"></iframe>
-          </div>
-          <div class="yt-box">
-            <iframe src="https://www.youtube.com/embed/K_jZJiNf6UE" allowfullscreen="" loading="lazy"></iframe>
-          </div>
-          <div class="yt-box">
-            <iframe src="https://www.youtube.com/embed/WdmP4ilvCjs" allowfullscreen="" loading="lazy"></iframe>
-          </div>
-          <div class="yt-box">
-            <iframe src="https://www.youtube.com/embed/28UecXn1wNI" allowfullscreen="" loading="lazy"></iframe>
-          </div>
-          <div class="yt-box">
-            <iframe src="https://www.youtube.com/embed/QoXlHWZktUU" allowfullscreen="" loading="lazy"></iframe>
-          </div>
-          <div class="yt-box">
-            <iframe src="https://www.youtube.com/embed/Px0NTvYg-rI" allowfullscreen="" loading="lazy"></iframe>
+      <!-- Showreels -->
+      <div id="showreels-section" style="display:none; margin-top: 18px;">
+        <a class="back" onclick="toggleShowreels(false)">← Back</a>
+        <div class="card" style="margin-top: 10px;">
+          <div class="section-title">YouTube showreels</div>
+          <div class="yt-grid">
+            <div class="yt-box"><iframe src="https://www.youtube.com/embed/yM8Uyrlwob0" loading="lazy" allowfullscreen></iframe></div>
+            <div class="yt-box"><iframe src="https://www.youtube.com/embed/K_jZJiNf6UE" loading="lazy" allowfullscreen></iframe></div>
+            <div class="yt-box"><iframe src="https://www.youtube.com/embed/WdmP4ilvCjs" loading="lazy" allowfullscreen></iframe></div>
+            <div class="yt-box"><iframe src="https://www.youtube.com/embed/28UecXn1wNI" loading="lazy" allowfullscreen></iframe></div>
+            <div class="yt-box"><iframe src="https://www.youtube.com/embed/QoXlHWZktUU" loading="lazy" allowfullscreen></iframe></div>
+            <div class="yt-box"><iframe src="https://www.youtube.com/embed/Px0NTvYg-rI" loading="lazy" allowfullscreen></iframe></div>
           </div>
         </div>
       </div>
     </section>
 
     <footer>
-      © <span id="year"></span> Akshansh Pareek · Built with clarity and care
+      © <span id="year"></span> Akshansh Pareek
     </footer>
   </div>
 
   <script>
-    const BASE = "https://aksh-hu.github.io/Akshanshpareek.github.io/";
-
-    function toPagesUrl(blobUrl) {
-      if (!blobUrl) return "#";
-      if (blobUrl.startsWith(BASE)) return blobUrl;
-      const m = blobUrl.match(/^https:\/\/github\.com\/[^\/]+\/[^\/]+\/blob\/main\/(.+)$/);
-      if (m && m[1]) return BASE + encodeURIComponent(m[1]);
-      return blobUrl;
-    }
-
-    // Navigation
+    // -------- NAV --------
     function showPage(pageId) {
       document.querySelectorAll(".page-section").forEach(el => el.classList.remove("active"));
       document.getElementById(pageId).classList.add("active");
 
       document.querySelectorAll(".nav-link").forEach(el => el.classList.remove("active"));
-      document.querySelector(`[onclick*="showPage('${pageId}')"]`)?.classList.add("active");
+      const map = { about: 0, projects: 1, cv: 2, other: 3 };
+      document.querySelectorAll(".nav-link")[map[pageId]].classList.add("active");
+
+      // reset other toggles if leaving Other page
+      if (pageId !== "other") {
+        document.getElementById("photo-section").style.display = "none";
+        document.getElementById("showreels-section").style.display = "none";
+      }
 
       window.scrollTo(0, 0);
     }
 
-    // Photography
-    function openPhoto() {
-      document.getElementById("photo-modal").style.display = "block";
+    // -------- OTHER PAGE TOGGLES --------
+    function openPhoto(show = true) {
+      document.getElementById("photo-section").style.display = show ? "block" : "none";
+      if (show) {
+        document.getElementById("showreels-section").style.display = "none";
+        window.scrollTo({ top: document.getElementById("photo-section").offsetTop - 10, behavior: "smooth" });
+      }
     }
 
-    function closePhoto() {
-      document.getElementById("photo-modal").style.display = "none";
+    function toggleShowreels(show = true) {
+      document.getElementById("showreels-section").style.display = show ? "block" : "none";
+      if (show) {
+        document.getElementById("photo-section").style.display = "none";
+        window.scrollTo({ top: document.getElementById("showreels-section").offsetTop - 10, behavior: "smooth" });
+      }
     }
 
-    // Showreels
-    function toggleShowreels() {
-      const section = document.getElementById("showreels-section");
-      section.style.display = section.style.display === "none" ? "block" : "none";
-    }
-
-    // Projects Data
+    // -------- PROJECTS DATA (from your message) --------
     const projects = [
       {
         id: "finequity",
         title: "FinEquity",
         year: "2025",
-        category: "Participatory audit platform · Microfinance",
-        short: "Participatory web platform for SHG borrowers to document loan outcomes and create group-level evidence for appeals.",
+        category: "Participatory web platform · Microfinance",
+        short: "Participatory platform that helps SHG borrowers document loan outcomes and generate evidence for appeals.",
         pdf: "https://github.com/Aksh-hu/Akshanshpareek.github.io/blob/main/Finequity_compressed(pdfgear.com).pdf",
-        demo: "https://aksh-hu.github.io/finequity-audit/",
-        overview: "FinEquity is a participatory web platform that helps SHG borrowers document what happened with their microfinance loan applications, compare outcomes across similar borrowers, and convert those records into group-level evidence for appeals and regulatory complaints—especially when decisions are opaque or reasons are not provided.",
+        demo: null,
+        prototype: "https://aksh-hu.github.io/finequity-audit/",
+        overview:
+          "FinEquity is a participatory web platform that helps SHG borrowers document what happened with their microfinance loan applications, compare outcomes across people like them, and turn those records into group-level evidence for appeals and regulatory complaints—especially when decisions are opaque or reasons are not provided.",
         who: [
           "SHG women borrowers, especially SC/ST handloom workers facing repeated rejections or worse terms.",
-          "SHG facilitators who support many borrowers and need a simple way to see group-level patterns.",
+          "SHG facilitators who support many borrowers and need a simple way to see patterns across the group.",
           "Regulators or advocates who need structured evidence instead of isolated stories."
         ],
         built: [
           "A borrower flow to record loan decision details (outcome, terms, reason given/not given).",
-          "A group view that aggregates borrower records into patterns (e.g., approval gaps by gender/occupation/location).",
-          "Evidence outputs attachable to appeals/complaints as a concise record of outcomes and terms."
+          "A group view that aggregates borrower records into clear patterns (approval gaps by gender/occupation/location).",
+          "Evidence outputs that can be attached to appeals/complaints as a concise record of outcomes and terms."
         ],
         findings: [
-          "Loan decisions are often not explained clearly, limiting borrower ability to improve or appeal.",
-          "Approval outcomes differ strongly across occupation and social identity groups; women and handloom workers are especially exposed.",
-          "Group-level comparisons shift borrowers from self-blame toward recognizing patterns, enabling collective action."
+          "Loan decisions are often not explained clearly, which blocks borrowers from improving applications or appealing.",
+          "Approval outcomes show strong differences across occupation and social identity groups, with women and handloom workers most exposed.",
+          "When comparison data is shown at SHG level, borrowers shift from self-blame to recognizing a pattern—making collective action and appeals more likely."
         ]
       },
       {
@@ -1050,32 +726,36 @@
         short: "Detects likely contribution suppression using structural dialogue features (not semantic meaning).",
         pdf: "https://github.com/Aksh-hu/Akshanshpareek.github.io/blob/main/Voiceweave.pdf",
         demo: "https://voiceweave-le5t57ivldbvmfcsm5bsez.streamlit.app/",
-        overview: "VoiceWeave detects when a participant's contribution is likely to be suppressed in a group conversation using structural signals from transcripts (not semantic content). It is designed to support facilitators and researchers with real-time visibility into participation inequities.",
+        prototype: null,
+        overview:
+          "VoiceWeave is a machine-learning project that detects when a participant’s contribution is likely to be suppressed in a group conversation, using only structural signals from dialogue transcripts (not semantic meaning). It’s designed to help facilitators and researchers make invisible participation inequities visible in real time and support evidence-based interventions to create more equitable discussions.",
         who: [
-          "Facilitators of deliberations, classrooms, meetings, or moderated forums needing real-time support.",
+          "Facilitators of deliberations, classrooms, meetings, or moderated forums who need real-time support.",
           "Researchers studying participation inequality and conversational power dynamics.",
-          "Organizations and educators aiming for inclusive group decision-making."
+          "Organizations and educators who want more inclusive group decision-making and discussion quality."
         ],
         built: [
-          "A labeled dataset of 38,000 dialogue turns from 850 conversations across five domains.",
+          "A labeled dataset of 38,000 dialogue turns from 850 conversations across five domains (deliberative, educational, organizational, online, focus groups).",
           "A suppression-risk classifier using four structural features: utterance length, word count, speaker turn count, and speaker diversity.",
-          "An interactive system concept to analyze transcripts, flag high-risk turns, and support interventions."
+          "A VoiceWeave system concept: an interactive tool to analyze transcripts, flag high-risk turns, and support facilitator recommendations."
         ],
         findings: [
-          "Suppression risk is predictable with 85% accuracy (87.2% precision, 82.7% recall) in binary classification.",
-          "Turn-level structure dominates: utterance length + word count account for 68.2% of predictive power.",
+          "Suppression risk is predictable with 85% accuracy, with 87.2% precision and 82.7% recall in binary classification.",
+          "Turn-level content structure dominates: utterance length + word count account for 68.2% of predictive power (vs 31.8% from speaker-level signals).",
           "Suppressed turns are much shorter on average (about 42.7 characters / 7.3 words) than amplified turns (about 89.4 characters / 14.8 words)."
         ]
       },
       {
         id: "samvedha",
-        title: "Samvedha: India's First Open Grocery App",
+        title: "Samvedha: India’s First Open Grocery App",
         year: "2024",
         category: "Service design · ONDC",
         short: "Open-network, community-run delivery concept supporting gig workers and local kirana stores without commissions.",
         pdf: "https://github.com/Aksh-hu/Akshanshpareek.github.io/blob/main/gig%20worker%20-%20kirana%20stores.pdf",
         demo: null,
-        overview: "Samvedha is a user-centered platform concept exploring how an open-network, community-run delivery system can support India's gig workers and local kirana stores without commissions or intermediaries. Designed within the ONDC ecosystem, it proposes a decentralized, cooperative alternative to platform dependency.",
+        prototype: null,
+        overview:
+          "Samvedha is a user-centered platform concept exploring how an open-network, community-run delivery system can support India’s gig workers and local kirana stores without commissions or intermediaries. Designed within the ONDC ecosystem, the project addresses structural issues in last-mile delivery by proposing a decentralized, cooperative alternative.",
         who: [
           "Gig delivery workers seeking fair pay and dignity of labor.",
           "Local kirana store owners in the unorganized retail sector.",
@@ -1091,18 +771,21 @@
         findings: [
           "Gig workers value stability, transparency, and predictable earnings over incentives.",
           "Kirana stores struggle with platform commissions and digital discoverability.",
-          "Closed-loop platforms reinforce dependency and income volatility; open networks can reduce friction while increasing trust."
+          "Closed-loop delivery platforms reinforce dependency and income volatility.",
+          "Open networks can reduce friction while increasing trust and participation."
         ]
       },
       {
         id: "sahaj",
         title: "Sahaj: Democratizing E-Commerce",
         year: "2023",
-        category: "Systems design · MSMEs",
-        short: "Culture-first e-commerce ecosystem enabling discovery, education, and sustainable scale for underrepresented producers.",
+        category: "Systems design · MSME digitization",
+        short: "Culture-first e-commerce ecosystem enabling discovery, education, and sustainable scale for underrepresented communities.",
         pdf: "https://github.com/Aksh-hu/Akshanshpareek.github.io/blob/main/democratizing%20e%20commerce.pdf",
         demo: null,
-        overview: "Sahaj is a systems-driven e-commerce concept designed to address digital inequality faced by India's micro and small businesses. It reimagines e-commerce as a culture-first ecosystem spanning products, experiences, and stays—prioritizing discovery and education over opaque algorithmic ranking.",
+        prototype: null,
+        overview:
+          "Sahaj is a systems-driven e-commerce concept designed to address digital inequality faced by India’s micro and small businesses. It reimagines e-commerce as a culture-first, multi-domain ecosystem that enables discovery, education, and sustainable scale for underrepresented communities.",
         who: [
           "Micro and small business owners from underrepresented regions.",
           "Artisans, food producers, and community-led enterprises.",
@@ -1116,9 +799,9 @@
           "End-to-end service flows supporting onboarding, commerce, and scale."
         ],
         findings: [
-          "Digital inequality persists: micro-businesses often lack capital, knowledge, and support to scale online.",
-          "Cultural knowledge remains undervalued and hard to discover via conventional ranking systems.",
-          "Education and ongoing support are necessary for meaningful MSME uplift (not just digitization)."
+          "Digital injustice persists: many micro-businesses lack capital, knowledge, and support to succeed online.",
+          "Cultural invisibility: local knowledge and produce remain undervalued and undiscovered.",
+          "Platform digitization without education and systemic support fails to create real uplift."
         ]
       },
       {
@@ -1126,25 +809,28 @@
         title: "Beyond Filtered Reality",
         year: "2024",
         category: "UX case study · Misinformation",
-        short: "Redesign of Instagram sharing flow to add pre-sharing credibility checks and AI-aware interventions.",
+        short: "Redesign of Instagram sharing flow with pre-sharing credibility checks and AI-aware UX interventions.",
         pdf: "https://github.com/Aksh-hu/Akshanshpareek.github.io/blob/main/social%20%20media.pdf",
         demo: null,
-        overview: "Beyond Filtered Reality is a UX case study exploring how Instagram can better address AI-propagated misinformation before it spreads. It integrates real-time, community-driven credibility signals and AI-aware design interventions directly into the sharing flow.",
+        prototype: null,
+        overview:
+          "Beyond Filtered Reality is a UX case study exploring how Instagram can better address AI-propagated misinformation before it spreads. It integrates real-time, community-driven credibility signals and AI-aware interventions into the sharing flow.",
         who: [
           "Active Instagram users who frequently share informational content.",
-          "Users who want to share responsibly but lack easy verification tools.",
+          "Users who want to share responsibly but lack easy ways to verify content.",
           "Platforms aiming to reduce misinformation without limiting expression."
         ],
         built: [
-          "End-to-end UX case study.",
-          "Redesigned sharing workflow with pre-sharing credibility checks.",
+          "A full end-to-end UX case study.",
+          "Redesigned Instagram sharing workflow with pre-sharing credibility checks.",
           "Community-driven credibility indicators and source transparency cues.",
-          "Low-friction UI interventions to support informed sharing."
+          "Low-friction UI interventions to support informed sharing decisions."
         ],
         findings: [
-          "Users are more likely to verify content if tools are embedded in the sharing flow.",
-          "Post-hoc fact-checking is less effective than pre-sharing assistance.",
-          "Community signals can increase trust more than generic platform warnings."
+          "Users are willing to verify content if tools are embedded directly in the sharing flow.",
+          "Post-hoc fact-checking is ineffective compared to pre-sharing assistance.",
+          "Community signals increase trust more than platform warnings alone.",
+          "AI-aware UX can reduce misinformation spread without harming engagement."
         ]
       },
       {
@@ -1152,10 +838,12 @@
         title: "SAMVAD: Dialogue Through Epistemology",
         year: "2025",
         category: "Dialogue analysis · Nyāya",
-        short: "Nyāya-grounded dialogue analysis with five modules to move from polarization toward co-created solutions.",
+        short: "Dialogue-analysis project that applies Nyāya epistemology to help groups move from polarization to synthesis.",
         pdf: "https://github.com/Aksh-hu/Akshanshpareek.github.io/blob/main/Samvad.pdf",
         demo: "https://samvad-app.onrender.com/",
-        overview: "SAMVAD brings ancient Nyāya epistemology into modern AI and policy conversations by treating stories, logic, analogies, and expert references as distinct but equally valid ways of knowing. It analyzes discussions using five modules to support truth-seeking dialogue and synthesis.",
+        prototype: null,
+        overview:
+          "SAMVAD brings ancient Nyāya epistemology into modern AI and policy conversations by treating stories, logic, analogies, and expert references as distinct but equally valid ways of knowing. It analyzes discussions using five modules to help groups move from polarization toward co-created, Nyāya-grounded solutions.",
         who: [
           "Policymakers and commissions working on contested issues (e.g., healthcare, climate).",
           "Civic tech / AI researchers exploring non-Western foundations for dialogue systems.",
@@ -1163,14 +851,16 @@
           "Platforms or labs interested in measuring and improving dialogue quality at scale."
         ],
         built: [
-          "A 5-module conceptual SAMVAD engine (pramāṇa classifier, value extractor, Tarka engine, hidden-agreement detector, dialogue quality meter).",
-          "End-to-end pipeline design: raw conversation to maps and suggested bridging language.",
-          "Visual frameworks: pramāṇa maps, Vada/Jalpa/Vitandā typology, and a Nyāya-to-policy flow."
+          "A 5-module conceptual “SAMVAD engine” (pramāṇa classifier, value extractor, Tarka engine, hidden-agreement detector, dialogue quality meter).",
+          "End-to-end pipeline design: from raw conversation to profiles, maps, and suggested bridging language.",
+          "Visual frameworks: pramāṇa maps, Vada/Jalpa/Vitandā typology, and a Sankey-style flow from Nyāya concepts to policy outcomes.",
+          "A detailed implementation blueprint using modern NLP, topic modeling, and visualization tools."
         ],
         findings: [
-          "Many stuck disagreements are epistemological (clashing pramāṇas), not purely value-based.",
-          "Making knowledge sources visible can reduce defensiveness and increase listening.",
-          "Shared-value highlighting makes synthesis proposals feel legitimate across groups."
+          "Most “stuck” disagreements in policy dialogues are epistemological (clashing pramāṇas), not value-based.",
+          "When participants see knowledge sources made visible, defensiveness drops and listening increases.",
+          "Highlighting shared values makes synthesis proposals feel legitimate to all sides.",
+          "Grounding AI-mediated dialogue in Nyāya creates richer, more respectful conversations than logic-only framings."
         ]
       },
       {
@@ -1178,64 +868,73 @@
         title: "BHED BHAV: Measuring Regional and Occupational Bias in Large Language Models",
         year: "2025",
         category: "Fairness · NLP",
-        short: "Bilingual dataset + evaluation pipeline to measure regional and occupational bias in LLMs.",
+        short: "Bilingual Indian dataset + evaluation pipeline to audit regional and occupational bias in LLMs.",
         pdf: "https://github.com/Aksh-hu/Akshanshpareek.github.io/blob/main/Bhed%20Bhav.pdf",
         demo: null,
-        overview: "BHED BHAV examines how LLMs trained on Western-centric data misrepresent India's regional and occupational diversity. It introduces a bilingual Indian dataset and a scalable pipeline to audit representational harms across languages and model families.",
+        prototype: null,
+        overview:
+          "BHED BHAV examines how LLMs trained on Western-centric data misrepresent India’s regional and occupational diversity. It develops the first bilingual Indian dataset targeting regional and occupational bias and provides a scalable framework to audit representational harms.",
         who: [
           "AI researchers and NLP practitioners working on fairness and bias.",
           "Designers and product teams building AI-powered experiences in India.",
           "Policymakers and institutions deploying LLMs in public-facing systems.",
-          "Rural, multilingual, and informal workforce users affected by biased outputs."
+          "Rural, multilingual, and informal workforce users affected by biased AI outputs."
         ],
         built: [
-          "India's first bilingual dataset targeting regional and occupational bias.",
+          "India’s first bilingual dataset addressing regional and occupational bias.",
           "150 curated sentence pairs (100 English, 50 Hindi).",
-          "Evaluation pipeline using AUL and CLL metrics.",
-          "Bias analysis across GPT-2, BERT, DistilBERT, ALBERT, and XLM-RoBERTa."
+          "A structured evaluation pipeline using AUL and CLL metrics.",
+          "Bias analysis across five LLMs: GPT-2, BERT, DistilBERT, ALBERT, and XLM-RoBERTa."
         ],
         findings: [
           "LLMs show strong preference for urban and high-skill occupations.",
-          "Occupational bias is higher in English than Hindi.",
-          "Regional bias persists across languages, indicating urban favoritism."
+          "Occupational bias is significantly higher in English than Hindi.",
+          "Regional bias persists across languages, indicating urban favoritism.",
+          "Data scarcity and Western-centric training directly impact trust for rural and informal users."
         ]
       },
       {
-        id: "creativity-error-404",
-        title: "Creativity – ERROR 404: Navigating Creativity and Ownership in the Age of AI-Assisted Students",
+        id: "creativity",
+        title: "Creativity – ERROR 404: Navigating Creativity and Ownership in the Age of AI‑Assisted Students",
         year: "2024",
         category: "Qualitative research · GenAI",
-        short: "Interviews with undergrads on how GenAI reshapes creativity, authorship, and learning.",
+        short: "Interviews with undergraduate students on creativity, authorship, and learning in AI-augmented education.",
         pdf: "https://github.com/Aksh-hu/Akshanshpareek.github.io/blob/main/Creativity%20error%20404.pdf",
         demo: null,
-        overview: "Creativity – ERROR 404 is a qualitative research project examining how generative AI tools reshape creativity, authorship, and learning among undergraduate students in Indian universities, including tensions between efficiency and creative identity.",
+        prototype: null,
+        overview:
+          "Creativity – ERROR 404 is a qualitative research project examining how generative AI tools reshape creativity, authorship, and learning among undergraduate students in Indian universities. It studies how students balance efficiency with creative identity, and how ownership and originality shift in AI-assisted work.",
         who: [
           "Educators and institutions integrating AI into creative curricula.",
           "Designers and engineers navigating AI-assisted creative workflows.",
-          "EdTech platforms building responsible AI tools.",
-          "Students aiming to maintain creative identity while using GenAI."
+          "EdTech platforms developing responsible AI tools.",
+          "Students seeking to maintain creative identity while using GenAI."
         ],
         built: [
-          "Qualitative study with 20 undergraduate students.",
+          "A qualitative research study with 20 undergraduate students.",
           "Semi-structured interview protocol and thematic analysis framework.",
           "Task taxonomy mapping AI use across creative stages.",
-          "Ethical AI integration framework for creative education."
+          "An ethical AI integration framework for creative education."
         ],
         findings: [
-          "AI expands ideation and reduces friction but can increase dependency risk.",
-          "Excessive reliance can dilute originality and personal voice.",
-          "Experienced users define clearer boundaries than novice users."
+          "AI expands ideation and reduces creative friction but risks dependency.",
+          "Excessive reliance on AI can dilute originality and personal voice.",
+          "Students struggle to distinguish human-created from AI-generated content.",
+          "Experienced users define clearer boundaries than novice users.",
+          "Creativity is strongest when AI supports divergence, not final synthesis."
         ]
       },
       {
-        id: "positionality-facct",
+        id: "positionality",
         title: "Disclosure Without Engagement: Positionality Statements at FAccT (2018–2024)",
         year: "2025",
-        category: "Empirical study · Research ethics",
-        short: "Longitudinal analysis of positionality statements and the gap between disclosure and reflexive engagement.",
+        category: "Empirical review · FAccT",
+        short: "Analyzes the gap between positionality disclosure and reflexive engagement in FAccT papers (2018–2024).",
         pdf: "https://github.com/Aksh-hu/Akshanshpareek.github.io/blob/main/positionality.pdf",
         demo: null,
-        overview: "Disclosure Without Engagement analyzes how positionality statements are used in FAccT papers from 2018 to 2024, examining whether researchers move beyond identity disclosure to reflect on how background shapes research decisions.",
+        prototype: null,
+        overview:
+          "Disclosure Without Engagement is an empirical research project analyzing how positionality statements are used in FAccT papers from 2018 to 2024, and whether researchers move beyond identity disclosure to reflect on how backgrounds influence research decisions.",
         who: [
           "FAccT and responsible AI researchers.",
           "Conference organizers and policy designers.",
@@ -1243,26 +942,30 @@
           "Scholars studying research ethics, transparency, and methodology."
         ],
         built: [
-          "Longitudinal review of positionality statements (2018–2024).",
+          "A longitudinal review of positionality statements at FAccT (2018–2024).",
           "Coding framework analyzing frequency, content, and impact linkage.",
           "Taxonomy of identity features and research impact types.",
           "Critical analysis of industry-affiliated disclosures."
         ],
         findings: [
-          "Positionality statement usage surged in 2024 (35% of papers).",
-          "One-third disclose identity without discussing research impact.",
-          "Industry influence is under-addressed despite relevance."
+          "Positionality statement usage surged in 2024, accounting for 35% of papers.",
+          "Training, background, and geography are disclosed more than identity traits.",
+          "One-third of statements disclose identity without discussing research impact.",
+          "When engagement occurs, it most often affects scope, framing, and analysis.",
+          "Industry influence is significantly under-addressed despite its relevance."
         ]
       },
       {
-        id: "reddit-audit",
+        id: "reddit",
         title: "Reddit Usability Audit",
         year: "2022",
         category: "UX audit · Heuristics",
-        short: "Heuristic + user research evaluation of participation, discoverability, and onboarding in a complex community-driven platform.",
+        short: "UX evaluation of Reddit focusing on participation, discoverability, content engagement, and newcomer onboarding.",
         pdf: "https://github.com/Aksh-hu/Akshanshpareek.github.io/blob/main/Reddit%20UX%20Audit.pdf",
         demo: null,
-        overview: "A UX evaluation of Reddit's interaction design, information architecture, and moderation mechanics—using heuristic evaluation, goal–parameter analysis, and user research—to identify usability gaps affecting discoverability and newcomer onboarding.",
+        prototype: null,
+        overview:
+          "The Reddit Usability Audit is a UX evaluation of Reddit’s interaction design, information architecture, and moderation mechanics using heuristic evaluation, goal–parameter analysis, and user research.",
         who: [
           "New and existing Reddit users navigating complex community structures.",
           "UX designers working on large-scale social platforms.",
@@ -1271,7 +974,7 @@
         ],
         built: [
           "End-to-end usability and heuristic audit.",
-          "Nielsen's heuristics + goal-oriented parameter evaluation.",
+          "Nielsen’s heuristics and goal-oriented parameter evaluation.",
           "Task-based usability testing and user interviews.",
           "Competitive and pattern analysis of community platforms."
         ],
@@ -1279,45 +982,47 @@
           "Steep learning curve for new users due to fragmented mental models.",
           "Poor visibility of community norms and moderation rules.",
           "Discoverability issues driven by dense information architecture.",
+          "Power-user features often come at the cost of usability.",
           "Inconsistent interaction patterns across subreddits."
         ]
       },
       {
-        id: "district-zomato",
+        id: "district",
         title: "District by Zomato: Heuristic Usability Evaluation",
         year: "2024",
         category: "UX evaluation · Transactions",
-        short: "Heuristic evaluation of event discovery and ticket booking flows using Nielsen's 10 heuristics + severity ratings.",
+        short: "Heuristic evaluation of District focusing on navigation, booking, and payment flows with severity ratings.",
         pdf: "https://github.com/Aksh-hu/Akshanshpareek.github.io/blob/main/Heuristic%20evaluation(district).pdf",
         demo: null,
-        overview: "A heuristic evaluation of District (Zomato's event discovery and ticket booking platform), analyzing navigation, booking, and payment flows, assigning severity ratings, and proposing design recommendations aligned with usability conventions.",
+        prototype: null,
+        overview:
+          "This project is a heuristic usability evaluation of District, Zomato’s event discovery and ticket booking platform. It evaluates alignment with usability principles and identifies friction points across navigation, booking, and payment flows.",
         who: [
           "Users booking events, movies, and dining experiences on District.",
-          "Product and UX teams working on booking-heavy consumer apps.",
-          "Designers improving transactional flows."
+          "Product and UX teams working on large-scale consumer apps.",
+          "Designers improving transactional and booking-heavy flows."
         ],
         built: [
-          "Heuristic evaluation using Nielsen's 10 usability heuristics.",
-          "Audit of discovery, navigation, booking, and payment flows.",
-          "Severity rating model to prioritize issues.",
-          "Actionable design recommendations."
+          "Full heuristic evaluation using Nielsen’s 10 usability heuristics.",
+          "Audited core user flows: discovery, navigation, booking, and payment.",
+          "Assigned severity ratings to usability violations.",
+          "Proposed design recommendations aligned with industry conventions."
         ],
         findings: [
-          "Inconsistent navigation patterns increased cognitive load.",
-          "Weak error prevention in payment flows caused seat resets.",
-          "Poor recovery from interruptions forced restarts.",
-          "Recommendations: bottom navigation consistency, confirmation dialogs, resume-booking."
+          "Inconsistent navigation patterns increased confusion and cognitive load.",
+          "No error prevention when leaving payment caused seat selection resets.",
+          "Booking flow lacked recovery from interruptions.",
+          "Recommendations: bottom navigation, confirmation dialogs, resume booking."
         ]
       }
     ];
 
-    // Render Projects Grid
+    // -------- PROJECTS RENDER --------
     const grid = document.getElementById("projects-grid");
     projects.forEach(p => {
       const card = document.createElement("div");
       card.className = "project-card";
       card.onclick = () => showProjectDetail(p.id);
-
       card.innerHTML = `
         <div class="thumb">${p.year}</div>
         <div class="project-body">
@@ -1329,17 +1034,15 @@
       grid.appendChild(card);
     });
 
-    // Show Project Detail
-    function showProjectDetail(projectId) {
-      const p = projects.find(x => x.id === projectId);
+    // -------- PROJECT DETAIL VIEW --------
+    function showProjectDetail(id) {
+      const p = projects.find(x => x.id === id);
       if (!p) return;
 
-      const pdfUrl = p.pdf ? toPagesUrl(p.pdf) : null;
-      const demoUrl = p.demo || null;
-
       const links = [];
-      if (pdfUrl) links.push(`<a class="btn" href="${pdfUrl}" target="_blank" rel="noopener">Full Case Study</a>`);
-      if (demoUrl) links.push(`<a class="btn secondary" href="${demoUrl}" target="_blank" rel="noopener">Live Demo</a>`);
+      if (p.pdf) links.push(`<a class="btn primary" href="${p.pdf}" target="_blank" rel="noopener">Full Case Study</a>`);
+      if (p.demo) links.push(`<a class="btn dark" href="${p.demo}" target="_blank" rel="noopener">Live Demo</a>`);
+      if (p.prototype) links.push(`<a class="btn ghost" href="${p.prototype}" target="_blank" rel="noopener">Prototype</a>`);
 
       const html = `
         <div class="detail">
@@ -1348,29 +1051,23 @@
             <span class="badge">${p.year}</span>
             ${p.category.split(" · ").map(x => `<span class="badge">${x}</span>`).join("")}
           </div>
-          <p class="para" style="margin: 0 0 12px;">${p.overview}</p>
+          <p class="para" style="margin:0;">${p.overview}</p>
           <div class="links">${links.join("")}</div>
         </div>
 
         <div class="detail">
-          <div class="section-title">Who it's for</div>
-          <ul class="clean">
-            ${p.who.map(x => `<li>${x}</li>`).join("")}
-          </ul>
+          <div class="section-title">Who it’s for</div>
+          <ul class="clean">${p.who.map(x => `<li>${x}</li>`).join("")}</ul>
         </div>
 
         <div class="detail">
-          <div class="section-title">What I built / did</div>
-          <ul class="clean">
-            ${p.built.map(x => `<li>${x}</li>`).join("")}
-          </ul>
+          <div class="section-title">What I built</div>
+          <ul class="clean">${p.built.map(x => `<li>${x}</li>`).join("")}</ul>
         </div>
 
         <div class="detail">
           <div class="section-title">Key findings</div>
-          <ul class="clean">
-            ${p.findings.map(x => `<li>${x}</li>`).join("")}
-          </ul>
+          <ul class="clean">${p.findings.map(x => `<li>${x}</li>`).join("")}</ul>
         </div>
       `;
 
@@ -1378,6 +1075,7 @@
       showPage("project-detail");
     }
 
+    // -------- INIT --------
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
